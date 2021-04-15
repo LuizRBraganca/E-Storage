@@ -1,0 +1,23 @@
+.categorias-back{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #ff5f6d, #ff7a65, #ff9362, #ffac66, #ffc371);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categorias-container{
+    width: 100%;
+    max-width: 1120px;
+    height: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    background: #f0f0f5;
+
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #FFF;
+
+    display: flex;
+    
+}

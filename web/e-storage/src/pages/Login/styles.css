@@ -29,10 +29,11 @@
     margin-bottom: 12%;
 }
 
-.login-container form button{
+/* .login-container form button{
     font-weight: 400;
     outline-color: #ff5f6d;
-}
+    
+} */
 
 .login-container .login-input{
     display: flex; 

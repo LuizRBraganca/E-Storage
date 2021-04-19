@@ -1,42 +1,57 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-function FirstScreen({ navigation }) {
+function FirstScreen({navigation}) {
   return (
-    <View style={styles.all}>
-      <LinearGradient
-        colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}
-        style={styles.Header}>
-        <View style={styles.Image}>
-          <Text style={{fontWeight: 'bold', color: '#000', marginTop: '45%'}}>
-            Icone
-          </Text>
+    <ScrollView style={styles.all}>
+      <View>
+        <LinearGradient
+          colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}
+          style={styles.Header}>
+          <View style={styles.Image}>
+            <Text style={{fontWeight: 'bold', color: '#000', marginTop: '45%'}}>
+              Icone
+            </Text>
+          </View>
+        </LinearGradient>
+
+        <View style={{height: '20%'}}>
+          <View
+            style={{
+              ...StyleSheet.absoluteFillObject,
+              backgroundColor: '#FFAC66',
+            }}
+          />
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: '#fff',
+              borderTopRightRadius: 100,
+            }}></View>
         </View>
-      </LinearGradient>
 
-      <View style={{height: 200}}>
-        <View
-          style={{...StyleSheet.absoluteFillObject, backgroundColor: '#FFAC66'}}
-        />
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: '#fff',
-            borderTopRightRadius: 100,
-          }}></View>
+        <View style={styles.ButtonsView}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('LoginScreen')}
+            style={styles.LoginButton}>
+            <Text style={styles.buttonText}>Entar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate('RegisterScreen')}
+            style={styles.CadastroButton}>
+            <Text style={styles.buttonText}>Cadastro</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
-      <View style={styles.ButtonsView}>
-        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')} style={styles.LoginButton}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.CadastroButton}>
-          <Text style={styles.buttonText}>Cadastro</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
@@ -50,25 +65,22 @@ const styles = StyleSheet.create({
   },
   Image: {
     marginTop: '40%',
-    width: 150,
+    width: 100,
+    height: 100,
     alignItems: 'center',
     backgroundColor: '#fff',
-    marginBottom: '30%',
-    height: 150,
+    marginBottom: '10%',
     borderRadius: 7,
     borderRadius: 100,
   },
   ButtonsView: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
   },
   LoginButton: {
-    paddingHorizontal: 8,
-    paddingVertical: 20,
+    paddingVertical: '5%',
     borderRadius: 8,
     backgroundColor: '#FF7A65',
-    marginHorizontal: '1%',
     marginBottom: '10%',
     minWidth: '70%',
     alignItems: 'center',
@@ -76,8 +88,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
   },
   CadastroButton: {
-    paddingHorizontal: 8,
-    paddingVertical: 20,
+    paddingVertical: '5%',
     borderRadius: 8,
     backgroundColor: '#FFAC66',
     marginHorizontal: '1%',

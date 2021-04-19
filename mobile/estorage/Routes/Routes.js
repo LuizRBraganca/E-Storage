@@ -1,12 +1,18 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import HomeScreen from '../Screens/HomeScreen';
+import FirstScreen from '../Screens/FirstScreen';
+import LoginScreen from '../Screens/LoginScreen';
 
 const App = createStackNavigator();
 
 const AppRoutes = () => (
-  <App.Navigator initialRouteName="HomeScreen">
-    <App.Screen name="HomeScreen" component={HomeScreen} />
+  <App.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+    initialRouteName="FirstScreen">
+    <App.Screen name="FirstScreen" component={FirstScreen} />
+    <App.Screen name="LoginScreen" component={LoginScreen} />
   </App.Navigator>
 );
 

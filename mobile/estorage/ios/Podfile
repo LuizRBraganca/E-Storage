@@ -12,6 +12,8 @@ target 'estorage' do
     :hermes_enabled => false
   )
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'estorageTests' do
     inherit! :complete
     # Pods for testing

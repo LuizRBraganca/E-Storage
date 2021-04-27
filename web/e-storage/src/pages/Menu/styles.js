@@ -42,8 +42,8 @@ export const MenuNavigationButton = styled(Link)`
     align-items: center;
     justify-content: flex-start;
     margin-top: 1rem;
-    height: 7.5vh;
-    width: 11vw;
+    height: 8vh;
+    width: 12vw;
     background: ${props => props.color };
     color: ${props => props.textColor };
     text-decoration: none;
@@ -56,37 +56,64 @@ export const MenuNavigationButton = styled(Link)`
     }
 `;
 export const NavigationButtonTitle = styled.p`
-    font-size: 1.15rem;
-    margin-left: 0.8rem;
+    font-size: 1.1rem;
+    margin-left: 0.7rem;
 `;
 export const HomeIcon = styled(HomeRoundedIcon)`
     color:  ${props => props.iconColor };
     font-size:  ${props => props.size };
-    margin-left: 0.9rem;
+    margin-left: 1rem;
 `;
 export const MenuIcon = styled(MenuRoundedIcon)`
-    color:  #ff5f6d;
-    margin-left: 0.7rem;
+    color: #ff5f6d;
+    margin-left: 1rem;
 `;
 export const AssignementIcon = styled(AssignmentRoundedIcon)`
     color:  #ff5f6d;
-    margin-left: 0.7rem;
+    margin-left: 1rem;
 `;
-export const MenuInfoContainer = styled.div`
+export const MenuInfoMainContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    margin: 1.5rem;
+    margin: 0.5rem;
+    width: 80vw;
 `;
 export const MenuInfoTitleContainer = styled.div`
     display: flex;
     flex-direction: row;    
     align-items: center;
     justify-content: center;
+    margin-left: 1rem; 
 `;
 export const MenuInfoTitle = styled.p`
     font-size: 1.8rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     color:  #ff5f6d;
+`;
+export const InfoMainContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    align-self: center;
+    width: 77vw; 
+`;
+export const InfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 16vw;
+    height: 14vh;
+    background-color: ${props => props.containerColor };
+    border-radius: 0.5rem;
+    box-shadow: 4px 5px 9px 2px rgba(0, 0, 0, 0.15);
+`;
+export const InfoContainerText = styled.p`
+    font-size: 1.2rem;
+    text-align: left;
+    color: white;
+    margin: 0 1rem 0 0.7rem;
 `;

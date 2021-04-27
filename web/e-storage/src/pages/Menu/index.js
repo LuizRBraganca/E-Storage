@@ -10,9 +10,12 @@ import {
     HomeIcon,
     MenuIcon,
     AssignementIcon,
-    MenuInfoContainer,
+    MenuInfoMainContainer,
     MenuInfoTitleContainer,
     MenuInfoTitle,
+    InfoMainContainer,
+    InfoContainer,
+    InfoContainerText
 } from "./styles.js";
 
 export default function Menu() {
@@ -31,7 +34,7 @@ export default function Menu() {
                         shadow="4px 5px 9px 2px rgba(0, 0, 0, 0.15)">
                         <HomeIcon
                             iconColor="white"
-                            size="medium" />
+                            size="large" />
                         <NavigationButtonTitle>
                             Menu
                         </NavigationButtonTitle>
@@ -56,18 +59,54 @@ export default function Menu() {
                     </MenuNavigationButton>
                 </MenuNavigationContainer>
 
-                <MenuInfoContainer>
-
+                <MenuInfoMainContainer>
                     <MenuInfoTitleContainer>
                         <HomeIcon
                             iconColor="#ff5f6d"
-                            size="large" />
+                            size="small" />
                         <MenuInfoTitle>
                             Quantidade de Pedidos
                         </MenuInfoTitle>
                     </MenuInfoTitleContainer>
-
-                </MenuInfoContainer>
+                    <InfoMainContainer>
+                        <InfoContainer
+                        containerColor="#ffc371">
+                            <InfoContainerText>
+                                120
+                            </InfoContainerText>
+                            <InfoContainerText>
+                                Na semana
+                            </InfoContainerText>
+                        </InfoContainer>
+                        <InfoContainer 
+                        containerColor="#ff9362">
+                            <InfoContainerText>
+                                109
+                            </InfoContainerText>
+                            <InfoContainerText>
+                                Entregues
+                            </InfoContainerText>
+                        </InfoContainer>
+                        <InfoContainer
+                        containerColor="#ff7a65">
+                            <InfoContainerText>
+                                1
+                            </InfoContainerText>
+                            <InfoContainerText>
+                                Cancelados
+                            </InfoContainerText>
+                        </InfoContainer>
+                        <InfoContainer
+                        containerColor="#ff5f6d">
+                            <InfoContainerText>
+                                5
+                            </InfoContainerText>
+                            <InfoContainerText>
+                                Pedentes
+                            </InfoContainerText>
+                        </InfoContainer>
+                    </InfoMainContainer>
+                </MenuInfoMainContainer>
             </MenuInsideContainer>
         </MenuMainContainer>
     );

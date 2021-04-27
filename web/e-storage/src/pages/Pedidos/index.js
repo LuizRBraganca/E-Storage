@@ -15,7 +15,7 @@ import {
     MenuInfoTitle,
 } from "./styles.js";
 
-export default function Menu() {
+export default function Pedidos() {
 
     const history = useHistory();
 
@@ -46,7 +46,6 @@ export default function Menu() {
                         </NavigationButtonTitle>
                     </MenuNavigationButton>
                     <MenuNavigationButton
-                        to="/pedidos"
                         color="white"
                         textColor="#ff5f6d">
                         <AssignementIcon />

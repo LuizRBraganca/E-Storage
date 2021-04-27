@@ -13,12 +13,11 @@ import {
     CategoriaInfoContainer,
     CategoriaInfoTitleContainer,
     CategoriaInfoTitle,
-    CategoriaAddButton,
-    AddCategoria,
-    AddButtonContainer,
+    BackButton,
+    BackIcon,
 } from "./styles.js";
 
-export default function Categorias() {
+export default function AddCategoria() {
 
     const history = useHistory();
 
@@ -62,22 +61,17 @@ export default function Categorias() {
                 <CategoriaInfoContainer>
 
                     <CategoriaInfoTitleContainer>
-                        <MenuIcon
-                            iconColor="#ff5f6d"
-                            size="large" />
+                        <BackButton
+                         to="/categorias"
+                         borderColor="#ff5f6d">
+                            <BackIcon />
+                        </BackButton>
                         <CategoriaInfoTitle>
-                            Categorias de Produto
+                            Adicionar Categoria de Produtos
                         </CategoriaInfoTitle>
-
+                        
                     </CategoriaInfoTitleContainer>
-                    
-                    <AddButtonContainer>
-                        <CategoriaAddButton
-                            to="/adicionar_categoria">
-                            <AddCategoria />
-                        </CategoriaAddButton>
-                    </AddButtonContainer>
-                    
+
                 </CategoriaInfoContainer>
             </CategoriaInsideContainer>
         </CategoriaMainContainer>

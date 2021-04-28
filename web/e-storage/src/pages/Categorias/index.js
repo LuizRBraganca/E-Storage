@@ -10,11 +10,12 @@ import {
     HomeIcon,
     MenuIcon,
     AssignementIcon,
-    CategoriaInfoContainer,
+    CategoriaInfoMainContainer,
+    InfoMainContainer,
     CategoriaInfoTitleContainer,
     CategoriaInfoTitle,
     CategoriaAddButton,
-    AddCategoria,
+    AddCategoriaIcon,
     AddButtonContainer,
 } from "./styles.js";
 
@@ -59,8 +60,8 @@ export default function Categorias() {
                     </CategoriaNavigationButton>
                 </CategoriaNavigationContainer>
 
-                <CategoriaInfoContainer>
-
+                <CategoriaInfoMainContainer>
+                    
                     <CategoriaInfoTitleContainer>
                         <MenuIcon
                             iconColor="#ff5f6d"
@@ -70,15 +71,21 @@ export default function Categorias() {
                         </CategoriaInfoTitle>
 
                     </CategoriaInfoTitleContainer>
-                    
+
+                    <InfoMainContainer>
+
+
+
+                    </InfoMainContainer>
+
                     <AddButtonContainer>
                         <CategoriaAddButton
                             to="/adicionar_categoria">
-                            <AddCategoria />
+                            <AddCategoriaIcon />
                         </CategoriaAddButton>
                     </AddButtonContainer>
-                    
-                </CategoriaInfoContainer>
+
+                </CategoriaInfoMainContainer>
             </CategoriaInsideContainer>
         </CategoriaMainContainer>
     );

@@ -10,11 +10,19 @@ import {
     HomeIcon,
     MenuIcon,
     AssignementIcon,
-    CategoriaInfoContainer,
+    CategoriaInfoMainContainer,
     CategoriaInfoTitleContainer,
     CategoriaInfoTitle,
     BackButton,
     BackIcon,
+    InfoMainContainer,
+    AddCategoriaInputContainer,
+    TitleAddCategoriaInput,
+    AddCategoriaInput,
+    CategoriaAddButton,
+    AddCategoriaIcon,
+    AddButtonContainer,
+
 } from "./styles.js";
 
 export default function AddCategoria() {
@@ -58,22 +66,45 @@ export default function AddCategoria() {
                     </CategoriaNavigationButton>
                 </CategoriaNavigationContainer>
 
-                <CategoriaInfoContainer>
-
+                <CategoriaInfoMainContainer>
+                    
                     <CategoriaInfoTitleContainer>
                         <BackButton
-                         to="/categorias"
-                         borderColor="#ff5f6d">
+                        to="/categorias">
                             <BackIcon />
                         </BackButton>
                         <CategoriaInfoTitle>
                             Adicionar Categoria de Produtos
                         </CategoriaInfoTitle>
-                        
+
                     </CategoriaInfoTitleContainer>
 
-                </CategoriaInfoContainer>
+                    <InfoMainContainer>
+                        <AddCategoriaInputContainer>
+                            <TitleAddCategoriaInput>
+                            Nome da Categoria
+                            </TitleAddCategoriaInput>
+                            <AddCategoriaInput />
+                            <br/><br/>
+                            <TitleAddCategoriaInput>
+                                Imagem
+                            </TitleAddCategoriaInput>
+                            <AddCategoriaInput />
+                        </AddCategoriaInputContainer>
+
+                        <AddButtonContainer>
+                            <CategoriaAddButton
+                                to="/categorias">
+                                <AddCategoriaIcon />
+                            </CategoriaAddButton>
+                        </AddButtonContainer>
+                    </InfoMainContainer>
+
+                   
+
+                </CategoriaInfoMainContainer>
             </CategoriaInsideContainer>
         </CategoriaMainContainer>
+
     );
 }

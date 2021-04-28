@@ -43,8 +43,8 @@ export const CategoriaNavigationButton = styled(Link)`
     align-items: center;
     justify-content: flex-start;
     margin-top: 1rem;
-    height: 7.5vh;
-    width: 11vw;
+    height: 8vh;
+    width: 12vw;
     background: ${props => props.color };
     color: ${props => props.textColor };
     text-decoration: none;
@@ -57,41 +57,54 @@ export const CategoriaNavigationButton = styled(Link)`
     }
 `;
 export const NavigationButtonTitle = styled.p`
-    font-size: 1.15rem;
-    margin-left: 0.8rem;
+    font-size: 1.1rem;
+    margin-left: 0.7rem;
 `;
 export const HomeIcon = styled(HomeRoundedIcon)`
     color:  #ff5f6d;
-    margin-left: 0.7rem;
+    margin-left: 1rem;
 `;
 export const MenuIcon = styled(MenuRoundedIcon)`
     color:  ${props => props.iconColor };
     font-size:  ${props => props.size };
-    margin-left: 0.9rem;
+    margin-left: 1rem;
 `;
 export const AssignementIcon = styled(AssignmentRoundedIcon)`
     color:  #ff5f6d;
-    margin-left: 0.7rem;
+    margin-left: 1rem;
 `;
 
-export const AddCategoria = styled(AddIcon)`
+export const AddCategoriaIcon = styled(AddIcon)`
     color:  #fff;
 `;
 
-export const CategoriaInfoContainer = styled.div`
+export const CategoriaInfoMainContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 1.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0.5rem;
+    width: 70vw;
 `;
+
 export const CategoriaInfoTitleContainer = styled.div`
     display: flex;
     flex-direction: row;    
     align-items: center;
     justify-content: center;
+    margin-left: 1rem; 
+`;
+export const InfoMainContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    align-self: center;
+    
 `;
 export const CategoriaInfoTitle = styled.p`
     font-size: 1.8rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     color:  #ff5f6d;
 `;
 export const AddButtonContainer = styled.div`

@@ -84,7 +84,7 @@ export default function AddCategoria() {
                             <TitleAddCategoriaInput>
                             Nome da Categoria
                             </TitleAddCategoriaInput>
-                            <AddCategoriaInput />
+                            <AddCategoriaInput placeholder="Ex: Frutas" />
                             <br/><br/>
                             <TitleAddCategoriaInput>
                                 Imagem

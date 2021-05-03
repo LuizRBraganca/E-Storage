@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 export const ScreenAreaView = styled.ScrollView`
-    flex: 1;
-    background-color: #ffffff;
+  flex: 1;
+  background-color: #ffffff;
 `;
 export const GoBackButton = styled.TouchableOpacity`
     padding-vertical: 3%;
@@ -16,27 +16,26 @@ export const GoBackButton = styled.TouchableOpacity`
     margin-start: 8%;
 `;
 export const GoBackButtonText = styled.Text`
-    fontSize: 20;
-    color: #fff;
+  fontsize: 20;
+  color: #fff;
 `;
 export const HeaderView = styled(LinearGradient)`
-    align-items: center;
-    border-bottom-left-radius: 100px;
-    
+  align-items: center;
+  border-bottom-left-radius: 100px;
 `;
 export const ImageView = styled.View`
-    width: 100;
-    height: 100;
-    align-items: center;
-    background-color: #fff;
-    margin-bottom: 10%;
-    border-radius: 7;
-    border-radius: 100;
+  width: 100;
+  height: 100;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 10%;
+  border-radius: 7;
+  border-radius: 100;
 `;
 export const ImageText = styled.Text`
-    font-weight: bold;
-    color: #000;
-    margin-top: 45%;
+  font-weight: bold;
+  color: #000;
+  margin-top: 45%;
 `;
 export const RegisterInput = styled.TextInput`
     height: 50;
@@ -66,9 +65,9 @@ export const LastInput = styled.TextInput`
     shadow-opacity: 0.3;
 `;
 export const ButtonsView = styled.View`
-    background-color: #fff;
-    align-items: center;
-    padding-bottom: 35%;
+  background-color: #fff;
+  align-items: center;
+  padding-bottom: 35%;
 `;
 export const RegisterButton = styled.TouchableOpacity`
     padding-vertical: 5%;
@@ -79,8 +78,8 @@ export const RegisterButton = styled.TouchableOpacity`
     align-items: center;
     shadow-offset: {width: 5, height: 5};
     shadow-opacity: 0.3;
-`; 
+`;
 export const ButtonsText = styled.Text`
-    font-size: 25px;
-    color: #fff;
+  font-size: 25px;
+  color: #fff;
 `;

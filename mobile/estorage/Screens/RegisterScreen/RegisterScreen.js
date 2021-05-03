@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-  StyleSheet,
-  KeyboardAvoidingView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {View, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import {
   ScreenAreaView,
   GoBackButton,
@@ -22,7 +14,6 @@ import {
   ButtonsText,
 } from './styles';
 
-
 function RegisterScreens({navigation}) {
   const [User, onChangeUser] = React.useState('');
   const [Password, onChangePassword] = React.useState('');
@@ -33,18 +24,14 @@ function RegisterScreens({navigation}) {
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}>
       <ScreenAreaView>
-        <HeaderView
-          colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
+        <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
           <GoBackButton>
-            <GoBackButtonText
-              onPress={() => navigation.goBack()}>
+            <GoBackButtonText onPress={() => navigation.goBack()}>
               Voltar
             </GoBackButtonText>
           </GoBackButton>
-          <ImageView >
-            <ImageText >
-              Icone
-            </ImageText>
+          <ImageView>
+            <ImageText>Icone</ImageText>
           </ImageView>
           <RegisterInput
             onChangeText={onChangeUser}
@@ -70,7 +57,7 @@ function RegisterScreens({navigation}) {
             placeholder="Nome da rua"
             placeholderTextColor="#4D5656FF"
           />
-          <RegisterInput   
+          <RegisterInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="CEP"
@@ -103,8 +90,7 @@ function RegisterScreens({navigation}) {
               backgroundColor: '#fff',
               borderTopRightRadius: 100,
               alignItems: 'center',
-            }}>
-          </View>
+            }}></View>
 
           <ButtonsView>
             <RegisterButton>

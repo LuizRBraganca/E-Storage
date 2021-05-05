@@ -65,7 +65,7 @@ export const BottomButtons = styled.TouchableOpacity`
     height: 110px;
     margin-bottom: 30%;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: #e9e9e9;
     shadow-offset: {width: 5, height: 5};
     shadow-opacity: 0.3;
 `; 

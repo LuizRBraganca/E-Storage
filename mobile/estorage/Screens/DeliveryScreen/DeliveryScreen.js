@@ -10,11 +10,15 @@ import {
   HeaderButtons,
   BottomView,
   ButtonsView,
-  BottomButtons,
-  ButtonsTitle,
+  AdressButtons,
+  PaymentButtons,
+  ConfirmOrCancelView,
+  ConfirmOrCancelButton,
+  ConfirmOrCancelButtonText,
+  ButtonsText,
 } from './styles';
 
-function ProfileScreen({navigation}) {
+function DeliveryScreen({navigation}) {
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -25,22 +29,18 @@ function ProfileScreen({navigation}) {
         </UserView>
         <HeaderButtonsView>
           <HeaderButtons
-            onPress={() => alert("Ja esta na pagina")}>
-          </HeaderButtons>
-
-          <HeaderButtons
             onPress={() =>
-              navigation.navigate('')
+              navigation.navigate('ProfileScreen')
             }></HeaderButtons>
 
+          <HeaderButtons></HeaderButtons>
+
           <HeaderButtons
-            onPress={() =>
-              navigation.navigate('DeliveryScreen')
-            }></HeaderButtons>
+            onPress={() => alert('Ja esta na pagina')}></HeaderButtons>
         </HeaderButtonsView>
       </HeaderView>
 
-      <View style={{height: '20%'}}>
+      <View style={{height: '15%'}}>
         <View
           style={{
             ...StyleSheet.absoluteFillObject,
@@ -56,27 +56,32 @@ function ProfileScreen({navigation}) {
       </View>
       <BottomView>
         <ButtonsView>
-          <ButtonsTitle>Scan</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <AdressButtons>
+            <ButtonsText>Endereco cadastrado</ButtonsText>
+          </AdressButtons>
         </ButtonsView>
 
         <ButtonsView>
-          <ButtonsTitle>Lista</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <PaymentButtons>
+            <ButtonsText>Forma de pagamento</ButtonsText>
+          </PaymentButtons>
         </ButtonsView>
+        <ConfirmOrCancelView>
+          <ButtonsView>
+            <ConfirmOrCancelButton>
+              <ConfirmOrCancelButtonText>Cancelar</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+          </ButtonsView>
 
-        <ButtonsView>
-          <ButtonsTitle>Historico</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ButtonsTitle>Estoque</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
+          <ButtonsView>
+            <ConfirmOrCancelButton>
+              <ConfirmOrCancelButtonText>Confirmar</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+          </ButtonsView>
+        </ConfirmOrCancelView>
       </BottomView>
     </ScreenAreaView>
   );
 }
 
-export default ProfileScreen;
+export default DeliveryScreen;

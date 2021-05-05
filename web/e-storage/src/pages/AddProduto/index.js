@@ -11,24 +11,23 @@ import {
     MenuIcon,
     AssignementIcon,
     ProdutoInfoMainContainer,
-    InfoMainContainer,
     ProdutoInfoTitleContainer,
     ProdutoInfoTitle,
     BackButton,
     BackIcon,
+    InfoMainContainer,
+    InputRow,
+    AddProdutoInputContainer,
+    TitleAddProdutoInput,
+    AddProdutoInput,
+    DescricaoInput,
     ProdutoAddButton,
     AddProdutoIcon,
     AddButtonContainer,
-    ProdutoContainer,
-    ProdutoButton,
-    ProdutoIcon,
-    ProdutoButtonTitle,
-    DeleteContainer,
-    DeleteButton,
-    DeleteProduto,
+
 } from "./styles.js";
 
-export default function Produtos() {
+export default function AddProduto() {
 
     const history = useHistory();
 
@@ -73,44 +72,65 @@ export default function Produtos() {
                     
                     <ProdutoInfoTitleContainer>
                         <BackButton
-                        to="/categorias">
+                        to="/produtos">
                             <BackIcon />
                         </BackButton>
                         <ProdutoInfoTitle>
-                            Produtos - Frios
+                            Adicionar Produto
                         </ProdutoInfoTitle>
 
                     </ProdutoInfoTitleContainer>
 
                     <InfoMainContainer>
-                        <ProdutoContainer>
-                            <DeleteContainer>
-                                <DeleteButton>
-                                    <DeleteProduto
-                                        style={{ fontSize: 20 }}
-                                    />
-                                </DeleteButton>
-                            </DeleteContainer>
-                            <ProdutoButton to="/detalhe_produto">
-                                <ProdutoIcon 
-                                    style={{ fontSize: 50 }}
-                                />
-                                <ProdutoButtonTitle>
-                                    Leite Ninho Nestle
-                                </ProdutoButtonTitle>
-                            </ProdutoButton>
-                        </ProdutoContainer>
+                        <InputRow>
+                            <AddProdutoInputContainer>
+                                <TitleAddProdutoInput>
+                                Nome do Item
+                                </TitleAddProdutoInput>
+                                <AddProdutoInput placeholder="Ex: Leite Ninho" />
 
+                                <TitleAddProdutoInput>
+                                Marca
+                                </TitleAddProdutoInput>
+                                <AddProdutoInput placeholder="Ex: Nestle" />
+                            
+                                <TitleAddProdutoInput >
+                                Peso/Volume
+                                </TitleAddProdutoInput>
+                                <AddProdutoInput placeholder="Ex: 500g" />
+                                <TitleAddProdutoInput>
+                                Preço
+                                </TitleAddProdutoInput>
+                                <AddProdutoInput placeholder="Ex: 20,00" />
+                            </AddProdutoInputContainer>
+
+                            <AddProdutoInputContainer>
+                                <TitleAddProdutoInput>
+                                Descrição
+                                </TitleAddProdutoInput>
+                                <DescricaoInput placeholder="Ex: Leite Ninho" />
+
+                                <TitleAddProdutoInput>
+                                Imagem
+                                </TitleAddProdutoInput>
+                                <AddProdutoInput />
+                            
+                            </AddProdutoInputContainer>
+                        </InputRow>
+                        
                         <AddButtonContainer>
                             <ProdutoAddButton
-                                to="/adicionar_produto">
+                                to="/produtos">
                                 <AddProdutoIcon />
                             </ProdutoAddButton>
                         </AddButtonContainer>
                     </InfoMainContainer>
 
+                   
+
                 </ProdutoInfoMainContainer>
             </ProdutoInsideContainer>
         </ProdutoMainContainer>
+
     );
 }

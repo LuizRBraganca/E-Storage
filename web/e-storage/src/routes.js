@@ -7,6 +7,8 @@ import Categorias from './pages/Categorias';
 import AddCategoria from './pages/AddCategoria';
 import Pedidos from './pages/Pedidos';
 import Produtos from './pages/Produtos';
+import AddProduto from './pages/AddProduto';
+import DetalheProduto from './pages/DetalheProduto';
 
 export default function Routes(){
     return(
@@ -18,6 +20,8 @@ export default function Routes(){
                 <Route path="/adicionar_categoria" exact component={AddCategoria}/>
                 <Route path="/pedidos" exact component={Pedidos}/>
                 <Route path="/produtos" exact component={Produtos}/>
+                <Route path="/adicionar_produto" exact component={AddProduto}/>
+                <Route path="/detalhe_produto" exact component={DetalheProduto}/>
             </Switch>
         </BrowserRouter>
     );

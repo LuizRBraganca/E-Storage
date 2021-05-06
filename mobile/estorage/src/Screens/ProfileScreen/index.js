@@ -21,7 +21,7 @@ function ProfileScreen({navigation}) {
         <UserView>
           <ImageView />
 
-          <WelcomeText>Bem Vindo,Usuario</WelcomeText>
+          <WelcomeText>Bem Vindo, Usuario</WelcomeText>
         </UserView>
         <HeaderButtonsView>
           <HeaderButtons
@@ -30,7 +30,7 @@ function ProfileScreen({navigation}) {
 
           <HeaderButtons
             onPress={() =>
-              navigation.navigate('')
+              navigation.navigate('MarketScreen')
             }></HeaderButtons>
 
           <HeaderButtons

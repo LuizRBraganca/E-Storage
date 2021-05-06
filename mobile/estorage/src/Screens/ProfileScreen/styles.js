@@ -20,9 +20,9 @@ export const ImageView = styled.View`
 export const WelcomeText = styled.Text`
     font-weight: bold;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     flex-wrap: wrap;
-    max-width: 45%;
+    max-width: 50%;
     align-self: center;
 `;
 export const UserView = styled.View`
@@ -71,7 +71,7 @@ export const BottomButtons = styled.TouchableOpacity`
     height: 110px;
     margin-bottom: 30%;
     border-radius: 8px;
-    background-color: #e9e9e9;
+    background-color: #f5f5f5;
     shadow-color: #000;
     shadow-offset: {
         width: 0;

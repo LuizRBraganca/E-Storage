@@ -27,15 +27,15 @@ function MarketScreen({navigation}) {
         </UserView>
         <HeaderButtonsView>
           <HeaderButtons
-            onPress={() => navigation.navigate('LoginScreen')}></HeaderButtons>
+            onPress={() => navigation.navigate('ProfileScreen')}></HeaderButtons>
           <HeaderButtons
             onPress={() =>
-              navigation.navigate('RegisterScreen')
+              alert("Ja esta na pagina")
             }></HeaderButtons>
 
           <HeaderButtons
             onPress={() =>
-              navigation.navigate('RegisterScreen')
+              navigation.navigate('DeliveryScreen')
             }></HeaderButtons>
         </HeaderButtonsView>
 

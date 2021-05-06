@@ -25,15 +25,14 @@ function DeliveryScreen({navigation}) {
         <UserView>
           <ImageView />
 
-          <WelcomeText>Bem Vindo,Usuario</WelcomeText>
+          <WelcomeText>Bem Vindo, Usuario</WelcomeText>
         </UserView>
         <HeaderButtonsView>
           <HeaderButtons
-            onPress={() =>
-              navigation.navigate('ProfileScreen')
-            }></HeaderButtons>
+            onPress={() => navigation.navigate('ProfileScreen')}></HeaderButtons>
 
-          <HeaderButtons></HeaderButtons>
+          <HeaderButtons
+           onPress={() => navigation.navigate('MarketScreen')}></HeaderButtons>
 
           <HeaderButtons
             onPress={() => alert('Ja esta na pagina')}></HeaderButtons>

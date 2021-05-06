@@ -9,8 +9,14 @@ export const GoBackButton = styled.TouchableOpacity`
     padding-vertical: 3%;
     border-radius: 8px;
     align-items: flex-start;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
     align-self: flex-start;
     margin-top: 15%;
     margin-start: 8%;

@@ -9,8 +9,14 @@ export const GoBackButton = styled.TouchableOpacity`
     padding-vertical: 3%;
     border-radius: 8;
     align-items: flex-start;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
     align-self: flex-start;
     margin-top: 15%;
     margin-start: 8%;
@@ -47,8 +53,14 @@ export const RegisterInput = styled.TextInput`
     background-color: #fff;
     fontSize: 23;
     padding-start: 15;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const LastInput = styled.TextInput`
     height: 50;
@@ -61,8 +73,14 @@ export const LastInput = styled.TextInput`
     background-color: #fff;
     fontSize: 23;
     padding-start: 15;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const ButtonsView = styled.View`
   background-color: #fff;
@@ -76,8 +94,14 @@ export const RegisterButton = styled.TouchableOpacity`
     margin-bottom: 20;
     min-width: 70%;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const ButtonsText = styled.Text`
   font-size: 25px;

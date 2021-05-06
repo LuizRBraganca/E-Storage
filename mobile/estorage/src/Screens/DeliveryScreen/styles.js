@@ -44,8 +44,14 @@ export const HeaderButtons = styled.TouchableOpacity`
     border-radius: 8px;
     background-color: #fff;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const BottomView = styled.View`
   margin-bottom: 50%;
@@ -60,8 +66,14 @@ export const AdressButtons = styled.TouchableOpacity`
     margin-bottom: 10%;
     border-radius: 8px;
     background-color: #e9e9e9;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
     align-items: center;
 `;
 export const PaymentButtons = styled.TouchableOpacity`
@@ -70,8 +82,14 @@ export const PaymentButtons = styled.TouchableOpacity`
     margin-bottom: 20%;
     border-radius: 8px;
     background-color: #e9e9e9;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
     align-items: center;
 `;
 export const ConfirmOrCancelView = styled.View`
@@ -86,8 +104,14 @@ export const ConfirmOrCancelButton = styled.TouchableOpacity`
     background-color: #FF7A65;
     margin-bottom: 20px;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
     justify-content: center;
 `;
 export const ButtonsText = styled.Text`

@@ -38,8 +38,14 @@ export const LoginButton = styled.TouchableOpacity`
     margin-bottom: 20px;
     min-width: 70%;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const RegisterButton = styled.TouchableOpacity`
     padding-vertical: 20px;
@@ -48,8 +54,14 @@ export const RegisterButton = styled.TouchableOpacity`
     margin-bottom: 20px;
     min-width: 70%;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const ButtonsText = styled.Text`
     font-size: 25px;

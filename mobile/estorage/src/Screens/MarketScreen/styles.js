@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export const ScreenAreaView = styled.ScrollView`
+
+export const ScreenAreaView = styled.SafeAreaView`
     flex: 1;
     background-color: #ffffff;
 `;
@@ -10,19 +11,19 @@ export const HeaderView = styled(LinearGradient)`
     border-bottom-left-radius: 100px;
 `;
 export const ImageView = styled.View`
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     background-color: #fff;
     border-radius: 7px;
     border-radius: 100px;
-    margin-horizontal: 10px;
+    margin: 1px 10px 1px 10px;
 `;
 export const WelcomeText = styled.Text`
     font-weight: bold;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     flex-wrap: wrap;
-    max-width: 45%;
+    max-width: 50%;
     align-self: center;
 `;
 export const UserView = styled.View`
@@ -34,42 +35,63 @@ export const UserView = styled.View`
 export const HeaderButtonsView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 10%;
+    margin-top: 5%;
 `;
 export const HeaderButtons = styled.TouchableOpacity`
-    width: 80px;
-    height: 80px;
-    margin-horizontal: 10px;
-    margin-bottom: 20%;
+    width: 70px;
+    height: 70px;
+    margin-right: 15px;
+    margin-bottom: 5%;
     border-radius: 8px;
     background-color: #fff;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    box-shadow: 10px 5px 5px black;
 `;
 export const BottomView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 40%;
+    margin: 0px 5px 20px;
     justify-content: center;
 `;
 export const ButtonsView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 110px;
-    margin-horizontal: 10%;
+    max-width: 100px;
+    margin: 0px 10px 10px 1px;
     justify-content: center;
 `;
 export const BottomButtons = styled.TouchableOpacity`
-    width: 110px;
-    height: 110px;
-    margin-bottom: 30%;
+background-color: #f5f5f5;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
+    width: 90px;
+    height: 90px;
+    margin: 10px 1px 10px 5px;
     border-radius: 8px;
-    background-color: #e9e9e9;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
-`; 
-export const ButtonsTitle = styled.Text`
-    font-size: 26px;
-    color: #000;
+    box-shadow: 20px 20px 20px black;
+    
 `;
+export const ButtonsTitle = styled.Text`
+    font-size: 17px;
+    color: #000;
+    margin-top: 1%;
+`;
+export const SearchInput = styled.TextInput`
+    height: 40;
+    margin-bottom: 7%;
+    margin-top: 1%;
+    width: 70%;
+    border-radius: 10;
+    align-items: center;
+    background-color: #fff;
+    font-size: 15;
+    padding-left: 15;
+    box-shadow: 10px 5px 5px black;
+`;
+

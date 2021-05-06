@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import ProfileScreen from '../Screens/ProfileScreen/ProfileScreen';
-import DeliveryScreen from '../Screens/DeliveryScreen/DeliveryScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
+import DeliveryScreen from '../Screens/DeliveryScreen';
 
 const App = createStackNavigator();
 

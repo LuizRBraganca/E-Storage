@@ -1,7 +1,8 @@
 exports.up = function(knex) {
   return knex.schema.createTable('categoria', function (table) {
     table.string('nome').primary();
-    //imagem
+    table.string('filename').notNullable();
+    table.string('path').notNullable();
   });
 };
 

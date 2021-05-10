@@ -13,7 +13,9 @@ exports.up = function(knex) {
 
     table.string('nomeCategoria').notNullable();
     table.foreign('nomeCategoria').references('nome').inTable('categoria');
-    //imagem
+    
+    table.string('filename').notNullable();
+    table.string('path').notNullable();
   });
 };
 

@@ -2,9 +2,10 @@ const connection = require('../database/connection');
 
 module.exports = {
   async create(request, response) {
-    const { nome, marca, peso, medida, preco, detalhamento } = request.body;
+    const { nome, marca, peso, medida, preco, detalhamento, filename, path } = request.body;
     const nomeSupermercado = request.userData;
     const { nomeCategoria } = request.params;
+
     try {
       if (await connection('produto').where('nome', nome).select().first()) {
         return response.status(400).send({ error: 'Produto ja criado!' });
@@ -18,7 +19,9 @@ module.exports = {
         preco,
         detalhamento,
         nomeSupermercado,
-        nomeCategoria
+        nomeCategoria,
+        filename,
+        path
       });
 
       const produto = await connection('produto')
@@ -57,17 +60,17 @@ module.exports = {
   async delete(request, response) {
     const { nomeCategoria } = request.params;
     const nome = request.body;
-    try{
+
+    try {
     if (await connection('produto')
     .where(('nomeCategoria', nomeCategoria) && ('nome', nome)).select() == null) {
       return response.status(400).send({ error: 'Produto nao existente!' });
     }
-  } catch(err) {
-    return response.status(400).send({ error: 'Registro de Produto falhou!' } + err);
-
-  }
     await connection('produto').where(('nomeCategoria', nomeCategoria) && ('nome', nome))
     .delete();
     return response.status(204).send();
+  } catch(err) {
+    return response.status(400).send({ error: 'Registro de Produto falhou!' } + err);
+  }
   }
 };

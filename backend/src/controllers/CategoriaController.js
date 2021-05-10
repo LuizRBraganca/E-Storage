@@ -2,7 +2,7 @@ const connection = require('../database/connection');
 
 module.exports = {
   async create(request, response) {
-    const { nome } = request.body;
+    const { nome, filename, path } = request.body;
 
     try {
       if (await connection('categoria').where('nome', nome).select().first()) {
@@ -11,6 +11,8 @@ module.exports = {
 
       await connection('categoria').insert({
         nome,
+        filename,
+        path
       });
 
       const categoria = await connection('categoria')

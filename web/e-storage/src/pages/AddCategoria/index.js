@@ -11,22 +11,21 @@ import {
     MenuIcon,
     AssignementIcon,
     CategoriaInfoMainContainer,
-    InfoMainContainer,
     CategoriaInfoTitleContainer,
     CategoriaInfoTitle,
+    BackButton,
+    BackIcon,
+    InfoMainContainer,
+    AddCategoriaInputContainer,
+    TitleAddCategoriaInput,
+    AddCategoriaInput,
     CategoriaAddButton,
     AddCategoriaIcon,
     AddButtonContainer,
-    CategoriaContainer,
-    CategoriaButton,
-    CategoriaIcon,
-    CategoriaButtonTitle,
-    DeleteContainer,
-    DeleteButton,
-    DeleteCategoria,
+
 } from "./styles.js";
 
-export default function Categorias() {
+export default function AddCategoria() {
 
     const history = useHistory();
 
@@ -70,44 +69,42 @@ export default function Categorias() {
                 <CategoriaInfoMainContainer>
                     
                     <CategoriaInfoTitleContainer>
-                        <MenuIcon
-                            iconColor="#ff5f6d"
-                            size="large" />
+                        <BackButton
+                        to="/categorias">
+                            <BackIcon />
+                        </BackButton>
                         <CategoriaInfoTitle>
-                            Categorias de Produto
+                            Adicionar Categoria de Produtos
                         </CategoriaInfoTitle>
 
                     </CategoriaInfoTitleContainer>
 
                     <InfoMainContainer>
-                        <CategoriaContainer>
-                            <DeleteContainer>
-                                <DeleteButton>
-                                    <DeleteCategoria
-                                        style={{ fontSize: 20 }}
-                                    />
-                                </DeleteButton>
-                            </DeleteContainer>
-                            <CategoriaButton to="/produtos">
-                                <CategoriaIcon 
-                                    style={{ fontSize: 50 }}
-                                />
-                                <CategoriaButtonTitle>
-                                    Frios
-                                </CategoriaButtonTitle>
-                            </CategoriaButton>
-                        </CategoriaContainer>
+                        <AddCategoriaInputContainer>
+                            <TitleAddCategoriaInput>
+                            Nome da Categoria
+                            </TitleAddCategoriaInput>
+                            <AddCategoriaInput placeholder="Ex: Frutas" />
+                            <br/><br/>
+                            <TitleAddCategoriaInput>
+                                Imagem
+                            </TitleAddCategoriaInput>
+                            <AddCategoriaInput />
+                        </AddCategoriaInputContainer>
 
                         <AddButtonContainer>
                             <CategoriaAddButton
-                                to="/adicionar_categoria">
+                                to="/categorias">
                                 <AddCategoriaIcon />
                             </CategoriaAddButton>
                         </AddButtonContainer>
                     </InfoMainContainer>
 
+                   
+
                 </CategoriaInfoMainContainer>
             </CategoriaInsideContainer>
         </CategoriaMainContainer>
+
     );
 }

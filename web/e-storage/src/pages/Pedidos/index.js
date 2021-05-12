@@ -10,12 +10,15 @@ import {
     HomeIcon,
     MenuIcon,
     AssignementIcon,
-    MenuInfoContainer,
+    MenuInfoMainContainer,
     MenuInfoTitleContainer,
     MenuInfoTitle,
+    InfoMainContainer,
+    InfoContainer,
+    InfoContainerText
 } from "./styles.js";
 
-export default function Pedidos() {
+export default function Menu() {
 
     const history = useHistory();
 
@@ -26,12 +29,9 @@ export default function Pedidos() {
                     <MenuNavigationTitle>EStorage</MenuNavigationTitle>
                     <MenuNavigationButton
                         to="/menu"
-                        color="#ff5f6d"
-                        textColor="white"
-                        shadow="4px 5px 9px 2px rgba(0, 0, 0, 0.15)">
-                        <HomeIcon
-                            iconColor="white"
-                            size="medium" />
+                        color="white"
+                        textColor="#ff5f6d">
+                        <HomeIcon />
                         <NavigationButtonTitle>
                             Menu
                         </NavigationButtonTitle>
@@ -46,27 +46,32 @@ export default function Pedidos() {
                         </NavigationButtonTitle>
                     </MenuNavigationButton>
                     <MenuNavigationButton
-                        color="white"
-                        textColor="#ff5f6d">
-                        <AssignementIcon />
+                        to="/pedidos"
+                        color="#ff5f6d"
+                        textColor="white"
+                        shadow="4px 5px 9px 2px rgba(0, 0, 0, 0.15)">
+                        <AssignementIcon
+                            iconColor="white"
+                            size="large" />
                         <NavigationButtonTitle>
                             Pedidos
                         </NavigationButtonTitle>
                     </MenuNavigationButton>
                 </MenuNavigationContainer>
 
-                <MenuInfoContainer>
-
+                <MenuInfoMainContainer>
                     <MenuInfoTitleContainer>
-                        <HomeIcon
+                        <AssignementIcon
                             iconColor="#ff5f6d"
-                            size="large" />
+                            size="small" />
                         <MenuInfoTitle>
-                            Quantidade de Pedidos
+                            Pedidos
                         </MenuInfoTitle>
                     </MenuInfoTitleContainer>
-
-                </MenuInfoContainer>
+                    <InfoMainContainer>
+                       
+                    </InfoMainContainer>
+                </MenuInfoMainContainer>
             </MenuInsideContainer>
         </MenuMainContainer>
     );

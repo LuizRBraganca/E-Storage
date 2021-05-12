@@ -1,73 +1,87 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
 import {
-    MenuMainContainer,
-    MenuInsideContainer,
-    MenuNavigationTitle,
-    MenuNavigationContainer,
-    MenuNavigationButton,
+    ProdutoMainContainer,
+    ProdutoInsideContainer,
+    ProdutoNavigationTitle,
+    ProdutoNavigationContainer,
+    ProdutoNavigationButton,
     NavigationButtonTitle,
     HomeIcon,
     MenuIcon,
     AssignementIcon,
-    MenuInfoContainer,
-    MenuInfoTitleContainer,
-    MenuInfoTitle,
+    ProdutoInfoMainContainer,
+    InfoMainContainer,
+    ProdutoInfoTitleContainer,
+    ProdutoInfoTitle,
+    BackButton,
+    BackIcon,
+    
+    ProdutoContainer,
+   
 } from "./styles.js";
 
-export default function DetalheProduto() {
+export default function Produtos() {
 
     const history = useHistory();
 
     return (
-        <MenuMainContainer>
-            <MenuInsideContainer>
-                <MenuNavigationContainer>
-                    <MenuNavigationTitle>EStorage</MenuNavigationTitle>
-                    <MenuNavigationButton
+        <ProdutoMainContainer>
+            <ProdutoInsideContainer>
+                <ProdutoNavigationContainer>
+                    <ProdutoNavigationTitle>EStorage</ProdutoNavigationTitle>
+                    <ProdutoNavigationButton
                         to="/menu"
-                        color="#ff5f6d"
-                        textColor="white"
-                        shadow="4px 5px 9px 2px rgba(0, 0, 0, 0.15)">
-                        <HomeIcon
-                            iconColor="white"
-                            size="medium" />
+                        color="white"
+                        textColor="#ff5f6d">
+                        <HomeIcon/>
                         <NavigationButtonTitle>
                             Menu
                         </NavigationButtonTitle>
-                    </MenuNavigationButton>
-                    <MenuNavigationButton
+                    </ProdutoNavigationButton>
+                    <ProdutoNavigationButton
                         to="/categorias"
-                        color="white"
-                        textColor="#ff5f6d">
-                        <MenuIcon />
+                        color="#ff5f6d"
+                        textColor="white"
+                        shadow="4px 5px 9px 2px rgba(0, 0, 0, 0.15)">
+                        <MenuIcon
+                            iconColor="white"
+                            size="medium" />
                         <NavigationButtonTitle>
                             Produtos
                         </NavigationButtonTitle>
-                    </MenuNavigationButton>
-                    <MenuNavigationButton
+                    </ProdutoNavigationButton>
+                    <ProdutoNavigationButton
+                        to="/pedidos"
                         color="white"
                         textColor="#ff5f6d">
                         <AssignementIcon />
                         <NavigationButtonTitle>
                             Pedidos
                         </NavigationButtonTitle>
-                    </MenuNavigationButton>
-                </MenuNavigationContainer>
+                    </ProdutoNavigationButton>
+                </ProdutoNavigationContainer>
 
-                <MenuInfoContainer>
-
-                    <MenuInfoTitleContainer>
-                        <HomeIcon
-                            iconColor="#ff5f6d"
-                            size="large" />
-                        <MenuInfoTitle>
+                <ProdutoInfoMainContainer>
+                    
+                    <ProdutoInfoTitleContainer>
+                        <BackButton
+                        to="/produtos">
+                            <BackIcon />
+                        </BackButton>
+                        <ProdutoInfoTitle>
                             Produtos - Frios
-                        </MenuInfoTitle>
-                    </MenuInfoTitleContainer>
+                        </ProdutoInfoTitle>
 
-                </MenuInfoContainer>
-            </MenuInsideContainer>
-        </MenuMainContainer>
+                    </ProdutoInfoTitleContainer>
+
+                    <InfoMainContainer>
+                        
+                            
+                    </InfoMainContainer>
+
+                </ProdutoInfoMainContainer>
+            </ProdutoInsideContainer>
+        </ProdutoMainContainer>
     );
 }

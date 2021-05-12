@@ -1,14 +1,18 @@
 import React from 'react';
+import {View, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import {
-  View,
-  ScrollView,
-  StyleSheet,
-  KeyboardAvoidingView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+  ScreenAreaView,
+  GoBackButton,
+  GoBackButtonText,
+  HeaderView,
+  ImageView,
+  ImageText,
+  RegisterInput,
+  LastInput,
+  ButtonsView,
+  RegisterButton,
+  ButtonsText,
+} from './styles';
 
 function RegisterScreens({navigation}) {
   const [User, onChangeUser] = React.useState('');
@@ -19,65 +23,59 @@ function RegisterScreens({navigation}) {
       style={{backgroundColor: '#fff', flex: 1}}
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}>
-      <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
-        <LinearGradient
-          colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}
-          style={styles.Header}>
-          <TouchableOpacity style={styles.GoBackButton}>
-            <Text
-              style={styles.GoBackButtonText}
-              onPress={() => navigation.goBack()}>
+      <ScreenAreaView>
+        <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
+          <GoBackButton>
+            <GoBackButtonText onPress={() => navigation.goBack()}>
               Voltar
-            </Text>
-          </TouchableOpacity>
-          <View style={styles.Image}>
-            <Text style={{fontWeight: 'bold', color: '#000', marginTop: '45%'}}>
-              Icone
-            </Text>
-          </View>
-          <TextInput
-            style={styles.Input}
+            </GoBackButtonText>
+          </GoBackButton>
+          <ImageView>
+            <ImageText>Icone</ImageText>
+          </ImageView>
+          <RegisterInput
             onChangeText={onChangeUser}
             value={User}
             placeholder="Crie um nome de usuario"
+            placeholderTextColor="#4D5656FF"
           />
-          <TextInput
-            style={styles.Input}
+          <RegisterInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="Insira o seu e-mail"
+            placeholderTextColor="#4D5656FF"
           />
-          <TextInput
-            style={styles.Input}
+          <RegisterInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="Crie uma senha"
+            placeholderTextColor="#4D5656FF"
           />
-          <TextInput
-            style={styles.Input}
+          <RegisterInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="Nome da rua"
+            placeholderTextColor="#4D5656FF"
           />
-          <TextInput
-            style={styles.Input}
+          <RegisterInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="CEP"
+            placeholderTextColor="#4D5656FF"
           />
-          <TextInput
-            style={styles.Input}
+          <RegisterInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="Numero"
+            placeholderTextColor="#4D5656FF"
           />
-          <TextInput
-            style={styles.LastInput}
+          <LastInput
             onChangeText={onChangePassword}
             value={Password}
             placeholder="Celular"
+            placeholderTextColor="#4D5656FF"
           />
-        </LinearGradient>
+        </HeaderView>
         <View style={{height: '30%'}}>
           <View
             style={{
@@ -93,21 +91,18 @@ function RegisterScreens({navigation}) {
               borderTopRightRadius: 100,
               alignItems: 'center',
             }}></View>
-          <View style={styles.ButtonsView}>
-            <TouchableOpacity style={styles.LoginButton}>
-              <Text style={styles.buttonText}>Cadastrar</Text>
-            </TouchableOpacity>
-          </View>
+
+          <ButtonsView>
+            <RegisterButton>
+              <ButtonsText>Cadastrar</ButtonsText>
+            </RegisterButton>
+          </ButtonsView>
         </View>
-      </ScrollView>
+      </ScreenAreaView>
     </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
-  all: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   Header: {
     alignItems: 'center',
     borderBottomLeftRadius: 100,
@@ -158,7 +153,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 5, height: 5},
     shadowOpacity: 0.3,
   },
-  buttonText: {
+  ButtonText: {
     fontSize: 25,
     color: '#fff',
   },

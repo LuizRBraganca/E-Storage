@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
+import { GridRowsProp, GridColDef} from '@material-ui/data-grid';
 import {
     ProdutoMainContainer,
     ProdutoInsideContainer,
@@ -16,14 +17,32 @@ import {
     ProdutoInfoTitle,
     BackButton,
     BackIcon,
-    
-    ProdutoContainer,
+    TabelaProduto,
+    TrashIcon,
+    DeleteButtonContainer,
+    ProdutoDeleteButton,
+    DetalheContainer,
+    DetalhamentoTitle,
+    DetalhamentoInfo,
    
 } from "./styles.js";
 
-export default function Produtos() {
+export default function DetalheProduto() {
 
     const history = useHistory();
+
+      
+    const columns: GridColDef[] = [
+        { field: 'col1', headerName: 'ID', width: 100 },
+        { field: 'col2', headerName: 'Nome do Item', width: 350 },
+        { field: 'col3', headerName: 'Marca', width: 250 },
+        { field: 'col4', headerName: 'Peso/Volume', width: 200 },
+        { field: 'col5', headerName: 'Preço', width: 123},
+    ];
+
+    const rows: GridRowsProp = [
+        { id: 1, col1: '1', col2: 'Leite Ninho', col3: 'Nestle', col4: '500g', col5: '20,00' },
+    ];
 
     return (
         <ProdutoMainContainer>
@@ -70,14 +89,26 @@ export default function Produtos() {
                             <BackIcon />
                         </BackButton>
                         <ProdutoInfoTitle>
-                            Produtos - Frios
+                            Produtos - Detalhamento
                         </ProdutoInfoTitle>
 
                     </ProdutoInfoTitleContainer>
 
                     <InfoMainContainer>
-                        
-                            
+                        <TabelaProduto rows={rows} columns={columns} hideFooter autoHeight  />
+                        <DetalheContainer>
+                            <DetalhamentoTitle>
+                                Descrição:
+                            </DetalhamentoTitle>
+                            <DetalhamentoInfo>
+                                Lata de leite ninho
+                            </DetalhamentoInfo>
+                        </DetalheContainer>
+                        <DeleteButtonContainer>
+                            <ProdutoDeleteButton>
+                                <TrashIcon/>
+                            </ProdutoDeleteButton>
+                        </DeleteButtonContainer> 
                     </InfoMainContainer>
 
                 </ProdutoInfoMainContainer>

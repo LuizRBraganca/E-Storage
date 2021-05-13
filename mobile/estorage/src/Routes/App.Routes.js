@@ -1,10 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import FirstScreen from '../Screens/FirstScreen';
+import WelcomeScreen from '../Screens/WelcomeScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import RegisterScreen from '../Screens/RegisterScreen';
-import MarketScreen from '../Screens/MarketScreen';
+import CategoriesScreen from '../Screens/CategoriesScreen';
+import ProductsScreen from '../Screens/ProductsScreen';
 
 const App = createStackNavigator();
 
@@ -13,11 +14,12 @@ const AppRoutes = () => (
     screenOptions={{
       headerShown: false,
     }}
-    initialRouteName="FirstScreen">
-    <App.Screen name="FirstScreen" component={FirstScreen} />
+    initialRouteName="WelcomeScreen">
+    <App.Screen name="WelcomeScreen" component={WelcomeScreen} />
     <App.Screen name="LoginScreen" component={LoginScreen} />
     <App.Screen name="RegisterScreen" component={RegisterScreen} />
-    <App.Screen name="MarketScreen" component={MarketScreen} />
+    <App.Screen name="CategoriesScreen" component={CategoriesScreen} />
+    <App.Screen name="ProductsScreen" component={ProductsScreen} />
   </App.Navigator>
 );
 

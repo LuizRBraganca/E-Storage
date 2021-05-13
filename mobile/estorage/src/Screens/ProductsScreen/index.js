@@ -3,7 +3,6 @@ import {View, StyleSheet} from 'react-native';
 import {
   ScreenAreaView,
   HeaderView,
-  ImageView,
   UserView,
   WelcomeText,
   HeaderButtonsView,
@@ -11,33 +10,22 @@ import {
   BottomView,
   ButtonsView,
   BottomButtons,
-  ButtonsTitle,
   SearchInput,
+  ConfirmOrCancelView,
+  ConfirmOrCancelButton,
+  ConfirmOrCancelButtonText,
+  ButtonsText,
 } from './styles';
 
-function MarketScreen({navigation}) {
+function ProductsScreen({navigation}) {
   const [Password, onChangePassword] = React.useState('');
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
         <UserView>
-          <ImageView />
 
-          <WelcomeText>Bem Vindo, Usuario</WelcomeText>
+          <WelcomeText>Bebidas</WelcomeText>
         </UserView>
-        <HeaderButtonsView>
-          <HeaderButtons
-            onPress={() => navigation.navigate('ProfileScreen')}></HeaderButtons>
-          <HeaderButtons
-            onPress={() =>
-              alert("Ja esta na pagina")
-            }></HeaderButtons>
-
-          <HeaderButtons
-            onPress={() =>
-              navigation.navigate('DeliveryScreen')
-            }></HeaderButtons>
-        </HeaderButtonsView>
 
         <SearchInput
             onChangeText={onChangePassword}
@@ -47,6 +35,8 @@ function MarketScreen({navigation}) {
           />
 
       </HeaderView>
+
+      
 
       <View style={{height: '10%'}}>
         <View
@@ -62,34 +52,58 @@ function MarketScreen({navigation}) {
             borderTopRightRadius: 100,
           }}></View>
       </View>
+
+      <ConfirmOrCancelView>
+
+          <ButtonsView>
+            <ConfirmOrCancelButton>
+              <ConfirmOrCancelButtonText>Cervejas</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+          </ButtonsView>
+          
+
+          <ButtonsView>
+            <ConfirmOrCancelButton>
+              <ConfirmOrCancelButtonText>Destilados</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+          </ButtonsView>
+
+          <ButtonsView>
+            <ConfirmOrCancelButton>
+              <ConfirmOrCancelButtonText>Sucos</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+          </ButtonsView>
+
+          <ButtonsView>
+            <ConfirmOrCancelButton>
+              <ConfirmOrCancelButtonText>Outros</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+          </ButtonsView>
+        </ConfirmOrCancelView>
+
+
       <BottomView>
         <ButtonsView>
-          <ButtonsTitle>Bebidas</ButtonsTitle>
           <BottomButtons></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
-          <ButtonsTitle>Frios</ButtonsTitle>
           <BottomButtons></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
-          <ButtonsTitle>Hortifruti</ButtonsTitle>
           <BottomButtons></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
-          <ButtonsTitle>Limpeza</ButtonsTitle>
           <BottomButtons></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
-          <ButtonsTitle>Confeitaria</ButtonsTitle>
           <BottomButtons></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
-          <ButtonsTitle>Pescados</ButtonsTitle>
           <BottomButtons></BottomButtons>
         </ButtonsView>
 
@@ -98,4 +112,4 @@ function MarketScreen({navigation}) {
   );
 }
 
-export default MarketScreen;
+export default ProductsScreen;

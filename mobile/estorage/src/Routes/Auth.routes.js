@@ -1,9 +1,9 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import ProfileScreen from '../Screens/ProfileScreen';
+import MenuScreen from '../Screens/MenuScreen';
 import DeliveryScreen from '../Screens/DeliveryScreen';
-import MarketScreen from '../Screens/MarketScreen';
+import CategoriesScreen from '../Screens/CategoriesScreen';
 
 const App = createStackNavigator();
 
@@ -13,14 +13,14 @@ const AuthRoutes = () => (
       headerShown: false,
       
     }}
-    initialRouteName="ProfileScreen">
-    <App.Screen name="ProfileScreen" component={ProfileScreen} options={{
+    initialRouteName="MenuScreen">
+    <App.Screen name="MenuScreen" component={MenuScreen} options={{
           animationEnabled: false,
         }}/>
     <App.Screen name="DeliveryScreen" component={DeliveryScreen} options={{
           animationEnabled: false,
         }}/>
-    <App.Screen name="MarketScreen" component={MarketScreen} options={{
+    <App.Screen name="CategoriesScreen" component={CategoriesScreen} options={{
           animationEnabled: false,
         }}/>
   </App.Navigator>

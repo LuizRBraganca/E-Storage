@@ -13,8 +13,9 @@ import {
   BottomButtons,
   ButtonsTitle,
 } from './styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-function ProfileScreen({navigation}) {
+function MenuScreen({navigation}) {
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -26,17 +27,20 @@ function ProfileScreen({navigation}) {
         <HeaderButtonsView>
           <HeaderButtons
             onPress={() => alert("Ja esta na pagina")}>
+              <Icon name="person" size={70} color="#000" />
           </HeaderButtons>
+          
+          <HeaderButtons
+            onPress={() =>
+              navigation.navigate('CategoriesScreen')}>
+              <Icon name="shopping-basket" size={70} color="#000" />
+            </HeaderButtons>
 
           <HeaderButtons
             onPress={() =>
-              navigation.navigate('MarketScreen')
-            }></HeaderButtons>
-
-          <HeaderButtons
-            onPress={() =>
-              navigation.navigate('DeliveryScreen')
-            }></HeaderButtons>
+              navigation.navigate('DeliveryScreen')}>
+              <Icon name="motorcycle" size={70} color="#000" />
+            </HeaderButtons>
         </HeaderButtonsView>
       </HeaderView>
 
@@ -57,26 +61,26 @@ function ProfileScreen({navigation}) {
       <BottomView>
         <ButtonsView>
           <ButtonsTitle>Scan</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <BottomButtons><Icon name="filter-center-focus" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Lista</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <BottomButtons><Icon name="post-add" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Historico</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <BottomButtons><Icon name="receipt" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Estoque</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <BottomButtons><Icon name="storage" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
       </BottomView>
     </ScreenAreaView>
   );
 }
 
-export default ProfileScreen;
+export default MenuScreen;

@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import AssignmentRoundedIcon from '@material-ui/icons/AssignmentRounded';
-import AddIcon from '@material-ui/icons/Add';
-import AcUnitRoundedIcon from '@material-ui/icons/AcUnitRounded';
-import DeleteIcon from '@material-ui/icons/Delete';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { DataGrid } from '@material-ui/data-grid';
 import {Link} from 'react-router-dom';
 
 export const ProdutoMainContainer = styled.div`
@@ -79,12 +78,13 @@ export const AssignementIcon = styled(AssignmentRoundedIcon)`
 `;
 
 
-
-
 export const BackIcon = styled(ArrowBackIcon)`
     color:  #ff5f6d;
 `;
 
+export const TrashIcon = styled(DeleteIcon)`
+    color:  #FFF;
+`;
 
 export const ProdutoInfoMainContainer = styled.div`
     display: flex;
@@ -109,7 +109,7 @@ export const InfoMainContainer = styled.div`
     justify-content: space-between;
     height: 80%;
     width: 77vw;
-    
+    /* background-color: #abcdef; */
 `;
 export const ProdutoInfoTitle = styled.p`
     font-size: 1.8rem;
@@ -134,7 +134,64 @@ export const BackButton = styled(Link)`
     }
 `;
 
+export const TabelaProduto = styled(DataGrid)`
+    display: flex;
+    width: 75vw;
+    max-height: 23.5%;
+    margin: 1rem;
+    & .MuiDataGrid-colCell{
+        color: #ff5f6d;
+    };
+    & .MuiDataGrid-cell{
+        background: #FEEFE2;
+    };
+`;
+
+export const DeleteButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    align-self: center;
+    width: 90%;;
+`;
+
+export const ProdutoDeleteButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 7.5vh;
+    width: 4vw;
+    background: #ff5f6d;
+    text-decoration: none;
+    border: none;
+    border-color: #ff5f6d;
+    border-radius: 0.5rem;
+    box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.2);
+
+    &:hover{
+        background: #cccccc;
+        transition: 0.2s;
+    }
+`;
+
+export const DetalheContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 77vw;
+`;
 
 
+export const DetalhamentoTitle = styled.p`
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    color:  #ff5f6d;
+`;
 
+export const DetalhamentoInfo = styled.p`
+    font-size: 1rem;
+    margin-left: 1rem;
+`;
 

@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import AssignmentRoundedIcon from '@material-ui/icons/AssignmentRounded';
+import DonutLargeRoundedIcon from '@material-ui/icons/DonutLargeRounded';
+import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
+import { Chart } from "react-google-charts";
 import {Link} from 'react-router-dom';
 
 export const MenuMainContainer = styled.div`
@@ -116,4 +119,43 @@ export const InfoContainerText = styled.p`
     text-align: left;
     color: white;
     margin: 0 1rem 0 0.7rem;
+`;
+export const GraphView = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 3rem;
+    flex: 1;
+`;
+export const BarGraphView = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+`;
+export const PizzaGraphView = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4rem;
+`;
+export const PizzaGraphTitle = styled.h3`
+    color: #ff5f6d;
+    margin-left: 0.5rem;
+`;
+export const Graph = styled(Chart)`
+`;
+export const PizzaIcon = styled(DonutLargeRoundedIcon)`
+    color: #ff5f6d;
+`;
+export const BarIcon = styled(BarChartRoundedIcon)`
+    color: #ff5f6d;
+`;
+export const GraphTitleIcon = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 `;

@@ -1,14 +1,17 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export const ScreenAreaView = styled.ScrollView`
+export const ScreenAreaView = styled.View`
     flex: 1;
     background-color: #ffffff;
 `;
 export const GoBackButton = styled.TouchableOpacity`
-    padding-vertical: 3%;
+    padding-vertical: 2%;
     border-radius: 8px;
-    align-items: flex-start;
+    background-color: #FF7A65;
+    margin-bottom: 10%;
+    min-width: 20%;
+    align-items: center;
     shadow-color: #000;
     shadow-offset: {
         width: 0;
@@ -18,11 +21,11 @@ export const GoBackButton = styled.TouchableOpacity`
     shadow-radius: 4.65;
     elevation: 7;
     align-self: flex-start;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-start: 8%;
 `;
 export const GoBackButtonText = styled.Text`
-    fontSize: 20px;
+    font-size: 20px;
     color: #fff;
 `;
 export const HeaderView = styled(LinearGradient)`
@@ -53,10 +56,16 @@ export const UserInput = styled.TextInput`
     border-radius: 10px;
     align-items: center;
     background-color: #fff;
-    fontSize: 23px;
+    font-size: 23px;
     padding-start: 15px;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const PasswordInput = styled.TextInput`
     height: 50px;
@@ -66,10 +75,16 @@ export const PasswordInput = styled.TextInput`
     border-radius: 10px;
     align-items: center;
     background-color: #fff;
-    fontSize: 23px;
+    font-size: 23px;
     padding-start: 15px;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `;
 export const ButtonsView = styled.View`
     background-color: #fff;
@@ -82,8 +97,14 @@ export const LoginButton = styled.TouchableOpacity`
     margin-bottom: 20px;
     min-width: 70%;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
-    shadow-opacity: 0.3;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
 `; 
 export const ButtonsText = styled.Text`
     font-size: 25px;

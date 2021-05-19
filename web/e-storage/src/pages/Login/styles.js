@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
-import { Link } from 'react-router-dom';
  
 export const MainContainer = styled.div`
     display: flex;
@@ -24,7 +22,7 @@ export const TitleLoginContainer = styled.h2`
     font-size: 3.3rem;
     color: #FFF;
 `;
-export const LoginFormContainer = styled(Form)`
+export const LoginFormContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +39,7 @@ export const TitleLoginInput = styled.text`
     color: #FFF;
     margin: 0.9rem 0 0.3rem 0;
 `;
-export const LoginInput = styled(Field)`
+export const LoginInput = styled.input`
     text-align: left;
     font-size: 1.1rem;
     width: 25vw;
@@ -57,7 +55,7 @@ export const LoginInput = styled(Field)`
     }
 
 `;
-export const LoginButton = styled(Link)`
+export const LoginButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;

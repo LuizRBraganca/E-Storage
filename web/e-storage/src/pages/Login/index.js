@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
-import Api from '../../services/api';
+import api from '../../services/api';
 import {
     MainContainer, 
     LoginContainer,
@@ -14,8 +14,34 @@ import {
 } from "./styles.js";
 
 export default function Login() {
-
     const history = useHistory();
+    const [nome, setNome] = useState('');
+    const [senha, setSenha] = useState('');
+
+    async function handleLoginSubmit() {
+
+        console.log(nome);
+        console.log(senha);
+
+        api.post('/authenticate/supermercado', {
+
+            nome,
+            senha,
+
+        }).then(function (response) {
+
+            console.log(response.data.user);
+            history.push('/menu');
+
+          }).catch(function (error) {
+
+            console.log(error);
+            alert('Email ou senha incorretos');
+
+          });
+    }
+
+    
 
     return(
         <MainContainer>
@@ -30,18 +56,24 @@ export default function Login() {
                                         Usuário
                                     </TitleLoginInput>
                                     <LoginInput                                                                     
-                                    name="username" 
-                                    type="text" />
+                                    name="nome" 
+                                    type="text" 
+                                    value={nome}
+                                    onChange={e => setNome(e.target.value)}
+                                    />
 
                                     <TitleLoginInput>
                                         Senha
                                     </TitleLoginInput>
                                     <LoginInput                               
-                                    name="password" 
-                                    type="password"/>
+                                    name="senha" 
+                                    type="password"
+                                    value={senha}
+                                    onChange={e => setSenha(e.target.value)}
+                                    />
 
                                     </LoginInputContainer>
-                                <LoginButton type="submit">
+                                <LoginButton type="submit" onClick={handleLoginSubmit}>
                                     Entrar
                                 </LoginButton>
                             </LoginFormContainer> 

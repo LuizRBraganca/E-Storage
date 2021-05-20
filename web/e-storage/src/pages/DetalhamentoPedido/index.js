@@ -10,47 +10,44 @@ import {
     NavigationButtonTitle,
     HomeIcon,
     MenuIcon,
-    BuscaIcon,
     AssignementIcon,
+    BackIcon,
     PedidoInfoMainContainer,
     PedidoInfoTitleContainer,
     PedidoInfoTitle,
+    BackButton,
     InfoMainContainer,
-    DetalhamentoInfo,
-    DetalhamentoTitle,
-    DetalheContainer,
+    ListaTitle,
+    ListaContainer,
     TabelaProduto,
-    DetalhamentoButton,
 } from "./styles.js";
 
-export default function Pedidos() {
+export default function DetalhamentoPedido() {
 
-    const columns: GridColDef[] = [
-        { field: 'col1', headerName: 'Nome do Cliente', width: 230 },
-        { field: 'col2', headerName: 'Situação', width: 170 },
-        { field: 'col3', headerName: 'Tipo de Entrega', width: 180 },
-        { field: 'col4', headerName: 'Horário Marcado', width: 170 },
-        { field: 'col5', headerName: 'Valor Total', width: 130 },
-        { field: " ",
-            headerName: "Detalhamento",
-            sortable: false,
-            width: 143,
-            /* disableClickEventBubbling: true, */
-            renderCell: (params) => {
-    
-        
-            return <DetalhamentoButton to='/detalhamento_pedido'>
-                <BuscaIcon/>
-            </DetalhamentoButton>;
-            }
-        },
+    const columns1: GridColDef[] = [
+        { field: 'col1', headerName: 'Nome do Cliente', width: 200 },
+        { field: 'col2', headerName: 'Tipo de Entrega', width: 200 },
+        { field: 'col3', headerName: 'Horário Marcado', width: 173 },
+        { field: 'col4', headerName: 'Valor Total', width: 150 },
+        { field: 'col5', headerName: 'Pagamento', width: 150 },
+        { field: 'col6', headerName: 'Troco', width: 150 },
     ];
 
-    const rows: GridRowsProp = [
-        { id: 1, col1: 'Caroline Bol', col2: 'concluído', col3: 'Delivery', col4: 'Imediatamente', col5: '87,93'},
-        { id: 2, col1: 'Luiz Ricardo', col2: 'recebido', col3: 'Busca - Doca', col4: '14:00', col5: '20,50'},
-        { id: 3, col1: 'David Cabral', col2: 'em andamento', col3: 'Delivery', col4: 'Imediatamente', col5: '57,71'},
-        { id: 4, col1: 'Danilo Castro', col2: 'em andamento', col3: 'Busca - Gentil', col4: '17:00', col5: '204,60'},
+    const rows1: GridRowsProp = [
+        { id: 1, col1: 'Caroline Bol', col2: 'Delivery', col3: 'Imediatamente', col4: '87,93', col5: 'Dinheiro', col6: '12,07'},
+    ];
+
+    const columns2: GridColDef[] = [
+        { field: 'col1', headerName: 'Nome Produto', width: 370 },
+        { field: 'col2', headerName: 'Quantidade', width: 205 },
+        { field: 'col3', headerName: 'Preço Unitário', width: 200 },
+        { field: 'col4', headerName: 'Valor Total', width: 200 },
+        
+    ];
+
+    const rows2: GridRowsProp = [
+        { id: 1, col1: 'Leite Ninho em Pó - Saco 400g', col2: '2', col3: '20,00', col4: '40,00'},
+        { id: 2, col1: 'Queijo Coalho Sadia 6 unidades', col2: '3', col3: '15,97', col4: '47,93'},
     ];
 
     const history = useHistory();
@@ -94,16 +91,32 @@ export default function Pedidos() {
 
                 <PedidoInfoMainContainer>
                     <PedidoInfoTitleContainer>
-                        <AssignementIcon
-                            iconColor="#ff5f6d"
-                            size="small" />
+                        <BackButton
+                        to="/pedidos">
+                            <BackIcon />
+                        </BackButton>
                         <PedidoInfoTitle>
-                            Pedidos
+                            Pedidos - Detalhamento
                         </PedidoInfoTitle>
                     </PedidoInfoTitleContainer>
                     <InfoMainContainer>
-                        <TabelaProduto rows={rows} columns={columns} hideFooter autoHeight  />
-                        {/* <DetalhamentoButton to='/detalhamento_pedido'></DetalhamentoButton> */}
+                        <TabelaProduto rows={rows1} columns={columns1} hideFooter autoHeight  />
+                        <ListaContainer>
+                            <PedidoInfoTitleContainer>
+                                <AssignementIcon
+                                iconColor="#ff5f6d"
+                                size="small" />
+                                <ListaTitle>Lista de Compras</ListaTitle>
+                            </PedidoInfoTitleContainer>
+                            <TabelaProduto rows={rows2} columns={columns2} hideFooter autoHeight checkboxSelection={true} />
+                        </ListaContainer>
+                        <PedidoInfoTitleContainer>
+                                <AssignementIcon
+                                iconColor="#ff5f6d"
+                                size="small" />
+                                <ListaTitle>Alterar Status Pedido</ListaTitle>
+                        </PedidoInfoTitleContainer>
+                        
                     </InfoMainContainer>
                 </PedidoInfoMainContainer>
             </PedidoInsideContainer>

@@ -9,6 +9,7 @@ import Pedidos from './pages/Pedidos';
 import Produtos from './pages/Produtos';
 import AddProduto from './pages/AddProduto';
 import DetalheProduto from './pages/DetalheProduto';
+import DetalhamentoPedido from './pages/DetalhamentoPedido';
 
 export default function Routes(){
     return(
@@ -22,6 +23,7 @@ export default function Routes(){
                 <Route path="/produtos" exact component={Produtos}/>
                 <Route path="/adicionar_produto" exact component={AddProduto}/>
                 <Route path="/detalhe_produto" exact component={DetalheProduto}/>
+                <Route path='/detalhamento_pedido' exact component={DetalhamentoPedido}/>
             </Switch>
         </BrowserRouter>
     );

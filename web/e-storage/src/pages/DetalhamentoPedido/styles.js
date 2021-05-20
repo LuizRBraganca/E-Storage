@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import AssignmentRoundedIcon from '@material-ui/icons/AssignmentRounded';
-import SearchIcon from '@material-ui/icons/Search';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { DataGrid } from '@material-ui/data-grid';
 
 import {Link} from 'react-router-dom';
@@ -75,12 +75,9 @@ export const AssignementIcon = styled(AssignmentRoundedIcon)`
     font-size:  ${props => props.size };
     margin-left: 1rem;
 `;
-
-export const BuscaIcon = styled(SearchIcon)`
-    color: #ff5f6d;
-    font-size: medium;
+export const BackIcon = styled(ArrowBackIcon)`
+    color:  #ff5f6d;
 `;
-
 export const PedidoInfoMainContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -101,6 +98,24 @@ export const PedidoInfoTitle = styled.p`
     margin-left: 1rem;
     color:  #ff5f6d;
 `;
+
+export const BackButton = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7.5vh;
+    width: 4vw;
+    border: 1px solid #ff5f6d;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    box-shadow: ${props => props.shadow };
+
+    &:hover{
+        background: #cccccc;
+        transition: 0.2s;
+    }
+`;
+
 export const InfoMainContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -127,26 +142,21 @@ export const InfoContainerText = styled.p`
     margin: 0 1rem 0 0.7rem;
 `;
 
-/* export const DetalheContainer = styled.div`
+export const ListaContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     width: 77vw;
 `;
 
-
-export const DetalhamentoTitle = styled.p`
+export const ListaTitle = styled.p`
     font-size: 1.2rem;
     margin-left: 1rem;
     color:  #ff5f6d;
 `;
 
-export const DetalhamentoInfo = styled.p`
-    font-size: 1rem;
-    margin-left: 1rem;
-`;
- */
+
 export const TabelaProduto = styled(DataGrid)`
     display: flex;
     width: 75vw;
@@ -160,19 +170,4 @@ export const TabelaProduto = styled(DataGrid)`
     };
 `;
 
-export const DetalhamentoButton = styled(Link)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5vh;
-    width: 3vw;
-    border: 1px solid #ff5f6d;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    /* box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.2); */
 
-    &:hover{
-        background: #cccccc;
-        transition: 0.2s;
-    }
-`;

@@ -22,7 +22,7 @@ export const GoBackButton = styled.TouchableOpacity`
     margin-start: 8%;
 `;
 export const GoBackButtonText = styled.Text`
-  fontsize: 20;
+  font-size: 20px;
   color: #fff;
 `;
 export const HeaderView = styled(LinearGradient)`
@@ -51,7 +51,7 @@ export const RegisterInput = styled.TextInput`
     border-radius: 10;
     align-items: center;
     background-color: #fff;
-    fontSize: 23;
+    font-Size: 23px;
     padding-start: 15;
     shadow-color: #000;
     shadow-offset: {
@@ -71,7 +71,7 @@ export const LastInput = styled.TextInput`
     border-radius: 10;
     align-items: center;
     background-color: #fff;
-    fontSize: 23;
+    font-Size: 23px;
     padding-start: 15;
     shadow-color: #000;
     shadow-offset: {

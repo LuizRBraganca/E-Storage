@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState } from "react";
+import {View, StyleSheet, Modal, Text, Pressable} from 'react-native';
 import {
   ScreenAreaView,
   HeaderView,
@@ -12,10 +12,17 @@ import {
   ButtonsView,
   BottomButtons,
   ButtonsTitle,
+  PopUp,
+  PopUpView,
+  ScanText,
+  ConfirmOrCancelButton,
+  ConfirmOrCancelButtonText,
 } from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function MenuScreen({navigation}) {
+const [modalVisible, setModalVisible] = useState('');
+
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -58,15 +65,40 @@ function MenuScreen({navigation}) {
             borderTopRightRadius: 100,
           }}></View>
       </View>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}>
+          <PopUp>
+            <PopUpView>
+              <ScanText>
+                Scan fora de funcionamento temporariamente
+              </ScanText>
+                  
+                  <ConfirmOrCancelButton onPress={() => setModalVisible(!modalVisible)}>
+                    <ConfirmOrCancelButtonText>Aceitar</ConfirmOrCancelButtonText>
+                  </ConfirmOrCancelButton>
+                
+            </PopUpView>
+          </PopUp>
+      </Modal>
+
+
       <BottomView>
         <ButtonsView>
           <ButtonsTitle>Scan</ButtonsTitle>
-          <BottomButtons><Icon name="filter-center-focus" size={100} color="#000" /></BottomButtons>
+          <BottomButtons onPress={() => setModalVisible(true)}><Icon name="filter-center-focus" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Lista</ButtonsTitle>
-          <BottomButtons><Icon name="post-add" size={100} color="#000" /></BottomButtons>
+          <BottomButtons onPress={() => navigation.navigate('ListScreen')}
+              ><Icon name="post-add" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
@@ -76,7 +108,7 @@ function MenuScreen({navigation}) {
 
         <ButtonsView>
           <ButtonsTitle>Estoque</ButtonsTitle>
-          <BottomButtons><Icon name="storage" size={100} color="#000" /></BottomButtons>
+          <BottomButtons onPress={() => navigation.navigate('StorageScreen')}><Icon name="storage" size={100} color="#000" /></BottomButtons>
         </ButtonsView>
       </BottomView>
     </ScreenAreaView>

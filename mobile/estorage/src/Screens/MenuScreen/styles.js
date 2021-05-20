@@ -85,3 +85,52 @@ export const ButtonsTitle = styled.Text`
     font-size: 26px;
     color: #000;
 `;
+
+export const PopUp = styled.View`
+    flex: 1;
+    justifyContent: center;
+    alignItems: center;
+`;
+export const PopUpView = styled.View`
+    width: 310px;
+    height: 210px;
+    backgroundColor: #FFC695;
+    borderRadius: 20px;
+    alignItems: center;
+    shadowColor: #000;
+    shadowOffset: {
+    width: 0,
+    height: 2
+    };
+    shadowOpacity: 0.25;
+    shadowRadius: 4px;
+    elevation: 5;
+`;
+export const ScanText = styled.Text`
+    font-size: 26px;
+    color: #000;
+    margin-bottom: 40px;
+    
+`;
+export const ConfirmOrCancelButton = styled.Pressable`
+    width: 130px;
+    height: 40px;
+    margin-horizontal: 6%;
+    border-radius: 8px;
+    background-color: #FF7A65;
+    margin-bottom: 20px;
+    align-items: center;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
+    justify-content: center;
+`;
+export const ConfirmOrCancelButtonText = styled.Text`
+  font-size: 24px;
+  color: #3f3f3f;
+`;

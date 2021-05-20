@@ -9,44 +9,28 @@ export const ScreenAreaView = styled.ScrollView`
 export const HeaderView = styled(LinearGradient)`
     align-items: center;
     border-bottom-left-radius: 100px;
-    height: 220px;
+`;
+export const ImageView = styled.View`
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 7px;
+    border-radius: 100px;
+    margin-horizontal: 10px;
 `;
 export const WelcomeText = styled.Text`
     font-weight: bold;
     color: #fff;
-    font-size: 20px;
+    font-size: 30px;
     flex-wrap: wrap;
     max-width: 50%;
     align-self: center;
-    margin-top: 20px;
 `;
 export const UserView = styled.View`
-    align-self: flex-start;
+    align-self: center;
     flex-direction: row;
-    margin: 30px 20px 20px 140px;
+    margin-top: 15%;
     max-height: 60px;
-`;
-export const HeaderButtonsView = styled.View`
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 10%;
-`;
-export const HeaderButtons = styled.TouchableOpacity`
-    width: 80px;
-    height: 80px;
-    margin-horizontal: 10px;
-    margin-bottom: 20%;
-    border-radius: 8px;
-    background-color: #fff;
-    align-items: center;
-    shadow-color: #000;
-    shadow-offset: {
-        width: 0;
-        height: 3;
-    };
-    shadow-opacity: 0.29;
-    shadow-radius: 4.65;
-    elevation: 7;
 `;
 export const BottomView = styled.View`
     flex-direction: row;
@@ -61,21 +45,7 @@ export const ButtonsView = styled.View`
     margin: 0px 10px 10px 1px;
     justify-content: center;
 `;
-export const BottomButtons = styled.TouchableOpacity`
-background-color: #f5f5f5;
-    shadow-color: #000;
-    shadow-offset: {
-        width: 0;
-        height: 3;
-    };
-    shadow-opacity: 0.29;
-    shadow-radius: 4.65;
-    elevation: 7;
-    width: 90px;
-    height: 90px;
-    margin: 10px 1px 10px 5px;
-    border-radius: 8px;
-`;
+
 export const SearchInput = styled.TextInput`
     height: 40;
     margin-bottom: 7%;
@@ -91,20 +61,41 @@ export const SearchInput = styled.TextInput`
         height: 3;
     };
 `;
-
+export const ListView = styled.View`
+    width: 300px;
+    height: 450px;
+    background-color: #FFC695;
+    border-radius: 10px;
+    margin-horizontal: 10px;
+    align-items: center;
+`;
+export const ListItemView = styled.View`
+    width: 260px;
+    height: 45px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 5%;
+    justify-content: center;
+`;
+export const ListItemText = styled.Text`
+    font-weight: bold;
+    color: #000;
+    font-size: 20px;
+    margin: 3%;
+`;
 export const ConfirmOrCancelView = styled.View`
-  margin: 1px 40px 30px 35px;
+  margin-bottom: 10%;
   flex-direction: row;
-  flex-wrap: wrap;
+  margin-top: 5%;
   justify-content: center;
 `;
 export const ConfirmOrCancelButton = styled.TouchableOpacity`
     width: 100px;
     height: 40px;
-    margin-horizontal: 6%;
+    margin-horizontal: 20px;
     border-radius: 8px;
     background-color: #FF7A65;
-    margin: 1px 10px 10px 20px;
+    margin-bottom: 20px;
     align-items: center;
     shadow-color: #000;
     shadow-offset: {
@@ -116,11 +107,7 @@ export const ConfirmOrCancelButton = styled.TouchableOpacity`
     elevation: 7;
     justify-content: center;
 `;
-export const ButtonsText = styled.Text`
-  font-size: 20px;
-  color: #000;
-`;
 export const ConfirmOrCancelButtonText = styled.Text`
-  font-size: 17px;
+  font-size: 24px;
   color: #3f3f3f;
 `;

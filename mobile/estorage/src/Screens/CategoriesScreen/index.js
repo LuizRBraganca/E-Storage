@@ -17,7 +17,6 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function CategoriesScreen({navigation}) {
-  const [Password, onChangePassword] = React.useState('');
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -46,8 +45,6 @@ function CategoriesScreen({navigation}) {
         </HeaderButtonsView>
 
         <SearchInput
-            onChangeText={onChangePassword}
-            value={Password}
             placeholder="Buscar..."
             placeholderTextColor="#4D5656FF"
           />
@@ -71,7 +68,9 @@ function CategoriesScreen({navigation}) {
       <BottomView>
         <ButtonsView>
           <ButtonsTitle>Bebidas</ButtonsTitle>
-          <BottomButtons></BottomButtons>
+          <BottomButtons
+          onPress={() => navigation.navigate('ProductsScreen')}
+          ></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>

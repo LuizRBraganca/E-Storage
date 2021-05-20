@@ -1,5 +1,6 @@
-import React from 'react';
-import {View, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import api from '../../services/api';
 import {
   ScreenAreaView,
   GoBackButton,
@@ -14,9 +15,26 @@ import {
   ButtonsText,
 } from './styles';
 
-function LoginScreen({navigation}) {
-  const [User, onChangeUser] = React.useState('');
-  const [Password, onChangePassword] = React.useState('');
+function LoginScreen({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  async function signIn() {
+    console.log(email);
+    console.log(senha);
+
+    api.post('/authenticate/cliente', {
+        email,
+        senha,
+    }).then(function (response) {
+        console.log(response.data.user);
+        console.log(response.data.token);
+       
+      }).catch(function (error) {
+        console.log(error);
+        alert('Email ou senha incorretos');
+      });
+  }
 
   return (
     <ScreenAreaView>
@@ -33,20 +51,24 @@ function LoginScreen({navigation}) {
             <ImageText>Icone</ImageText>
           </ImageView>
           <UserInput
-            onChangeText={onChangeUser}
-            value={User}
+            onChangeText={setEmail}
+            value={email}
             placeholder="Usuario"
             placeholderTextColor="#4D5656FF"
+            autoCapitalize='none'
+            keyboardType='email-address'
           />
           <PasswordInput
-            onChangeText={onChangePassword}
-            value={Password}
+            onChangeText={setSenha}
+            value={senha}
             placeholder="Senha"
             placeholderTextColor="#4D5656FF"
+            autoCapitalize='none'
+            secureTextEntry={true}
           />
         </HeaderView>
 
-        <View style={{height: '15%'}}>
+        <View style={{ height: '15%' }}>
           <View
             style={{
               ...StyleSheet.absoluteFillObject,
@@ -63,8 +85,8 @@ function LoginScreen({navigation}) {
             }}></View>
         </View>
         <ButtonsView>
-          <LoginButton>
-            <ButtonsText>Entrar</ButtonsText>
+          <LoginButton onPress={() => signIn()}>
+            <ButtonsText >Entrar</ButtonsText>
           </LoginButton>
         </ButtonsView>
       </KeyboardAvoidingView>

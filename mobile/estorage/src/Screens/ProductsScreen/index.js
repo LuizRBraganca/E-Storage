@@ -18,25 +18,15 @@ import {
 } from './styles';
 
 function ProductsScreen({navigation}) {
-  const [Password, onChangePassword] = React.useState('');
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
         <UserView>
-
           <WelcomeText>Bebidas</WelcomeText>
         </UserView>
 
-        <SearchInput
-            onChangeText={onChangePassword}
-            value={Password}
-            placeholder="Buscar..."
-            placeholderTextColor="#4D5656FF"
-          />
-
+        <SearchInput placeholder="Buscar..." placeholderTextColor="#4D5656FF" />
       </HeaderView>
-
-      
 
       <View style={{height: '10%'}}>
         <View
@@ -54,33 +44,30 @@ function ProductsScreen({navigation}) {
       </View>
 
       <ConfirmOrCancelView>
+        <ButtonsView>
+          <ConfirmOrCancelButton>
+            <ConfirmOrCancelButtonText>Cervejas</ConfirmOrCancelButtonText>
+          </ConfirmOrCancelButton>
+        </ButtonsView>
 
-          <ButtonsView>
-            <ConfirmOrCancelButton>
-              <ConfirmOrCancelButtonText>Cervejas</ConfirmOrCancelButtonText>
-            </ConfirmOrCancelButton>
-          </ButtonsView>
-          
+        <ButtonsView>
+          <ConfirmOrCancelButton>
+            <ConfirmOrCancelButtonText>Destilados</ConfirmOrCancelButtonText>
+          </ConfirmOrCancelButton>
+        </ButtonsView>
 
-          <ButtonsView>
-            <ConfirmOrCancelButton>
-              <ConfirmOrCancelButtonText>Destilados</ConfirmOrCancelButtonText>
-            </ConfirmOrCancelButton>
-          </ButtonsView>
+        <ButtonsView>
+          <ConfirmOrCancelButton>
+            <ConfirmOrCancelButtonText>Sucos</ConfirmOrCancelButtonText>
+          </ConfirmOrCancelButton>
+        </ButtonsView>
 
-          <ButtonsView>
-            <ConfirmOrCancelButton>
-              <ConfirmOrCancelButtonText>Sucos</ConfirmOrCancelButtonText>
-            </ConfirmOrCancelButton>
-          </ButtonsView>
-
-          <ButtonsView>
-            <ConfirmOrCancelButton>
-              <ConfirmOrCancelButtonText>Outros</ConfirmOrCancelButtonText>
-            </ConfirmOrCancelButton>
-          </ButtonsView>
-        </ConfirmOrCancelView>
-
+        <ButtonsView>
+          <ConfirmOrCancelButton>
+            <ConfirmOrCancelButtonText>Outros</ConfirmOrCancelButtonText>
+          </ConfirmOrCancelButton>
+        </ButtonsView>
+      </ConfirmOrCancelView>
 
       <BottomView>
         <ButtonsView>
@@ -106,7 +93,6 @@ function ProductsScreen({navigation}) {
         <ButtonsView>
           <BottomButtons></BottomButtons>
         </ButtonsView>
-
       </BottomView>
     </ScreenAreaView>
   );

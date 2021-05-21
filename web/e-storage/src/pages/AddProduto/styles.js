@@ -199,7 +199,7 @@ export const AddButtonContainer = styled.div`
     align-self: center;
     width: 90%;
 `;
-export const ProdutoAddButton = styled(Link)`
+export const ProdutoAddButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;

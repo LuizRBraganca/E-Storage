@@ -1,4 +1,5 @@
-import React from "react";
+import api from "../../services/api";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 import {
     ProdutoMainContainer,
@@ -28,8 +29,49 @@ import {
 } from "./styles.js";
 
 export default function AddProduto() {
-
+    const [nome, setNome] = useState("");
+    const [marca, setMarca] = useState("");
+    const [peso, setPeso] = useState("1");
+    const [medida, setMedida] = useState("");
+    const [preco, setPreco] = useState("");
+    const [detalhamento, setDetalhamento] = useState("");
+    const [filename, setFilename] = useState("");
+    const [path, setPath] = useState("C:\\Users\\isabe\\E-Storage\\backend\\uploads\\fa11f498d13871bc.jpg");
+    const myToken = `Bearer ${localStorage.getItem("token")}`;
     const history = useHistory();
+
+    async function handleCadastroProduto(e) {
+        e.preventDefault();
+
+        const data = {
+            nome,
+            marca,
+            peso,
+            medida,
+            preco,
+            detalhamento,
+            filename,
+            path,
+        };
+
+        //`/produto/cadastro/${nome}
+        api.post('/produto/cadastro/Frios', data, {headers: {Authorization: myToken}}).then(function (response) {
+
+            console.log(response.data.categoria);
+            alert(
+                "Produto cadastrado com sucesso"
+              );
+            history.push('/produtos');
+
+          }).catch(function (error) {
+
+            console.log(myToken);
+            console.log({error});
+            alert(error.response.data.error);
+
+          });
+
+    }
 
     return (
         <ProdutoMainContainer>
@@ -81,46 +123,69 @@ export default function AddProduto() {
 
                     </ProdutoInfoTitleContainer>
 
-                    <InfoMainContainer>
+                    <InfoMainContainer onSubmit={handleCadastroProduto}>
                         <InputRow>
                             <AddProdutoInputContainer>
                                 <TitleAddProdutoInput>
                                 Nome do Item
                                 </TitleAddProdutoInput>
-                                <AddProdutoInput placeholder="Ex: Leite Ninho" />
+                                <AddProdutoInput 
+                                    placeholder="Ex: Leite Ninho" 
+                                    value={nome}
+                                    onChange={e => setNome(e.target.value)}
+                                />
 
                                 <TitleAddProdutoInput>
                                 Marca
                                 </TitleAddProdutoInput>
-                                <AddProdutoInput placeholder="Ex: Nestle" />
+                                <AddProdutoInput 
+                                    placeholder="Ex: Nestle" 
+                                    value={marca}
+                                    onChange={e => setMarca(e.target.value)}
+                                />
                             
                                 <TitleAddProdutoInput >
                                 Peso/Volume
                                 </TitleAddProdutoInput>
-                                <AddProdutoInput placeholder="Ex: 500g" />
+                                <AddProdutoInput 
+                                    placeholder="Ex: 500g" 
+                                    value={medida}
+                                    onChange={e => setMedida(e.target.value)}
+                                />
                                 <TitleAddProdutoInput>
                                 Preço
                                 </TitleAddProdutoInput>
-                                <AddProdutoInput placeholder="Ex: 20,00" />
+                                <AddProdutoInput 
+                                    placeholder="Ex: 20,00" 
+                                    value={preco}
+                                    onChange={e => setPreco(e.target.value)}    
+                                />
                             </AddProdutoInputContainer>
 
                             <AddProdutoInputContainer>
                                 <TitleAddProdutoInput>
                                 Descrição
                                 </TitleAddProdutoInput>
-                                <DescricaoInput placeholder="Ex: Leite Ninho" />
+                                <DescricaoInput 
+                                    placeholder="Ex: Leite Ninho" 
+                                    value={detalhamento}
+                                    onChange={e => setDetalhamento(e.target.value)}   
+                                />
 
                                 <TitleAddProdutoInput>
                                 Imagem
                                 </TitleAddProdutoInput>
-                                <AddProdutoInput />
+                                <AddProdutoInput 
+                                    value={filename}
+                                    onChange={e => setFilename(e.target.value)}
+                                />
                             
                             </AddProdutoInputContainer>
                         </InputRow>
                         
                         <AddButtonContainer>
                             <ProdutoAddButton
-                                to="/produtos">
+                               type='submit'>
                                 <AddProdutoIcon />
                             </ProdutoAddButton>
                         </AddButtonContainer>

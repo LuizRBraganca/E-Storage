@@ -1,4 +1,5 @@
-import React from "react";
+import api from "../../services/api";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 import {
     CategoriaMainContainer,
@@ -26,8 +27,39 @@ import {
 } from "./styles.js";
 
 export default function AddCategoria() {
-
+    const [nome, setNome] = useState("");
+    const [filename, setFilename] = useState("");
+    const [path, setPath] = useState("C:\\Users\\isabe\\E-Storage\\backend\\uploads\\fa11f498d13871bc.jpg");
+    const myToken = `Bearer ${localStorage.getItem("token")}`;
     const history = useHistory();
+
+    async function handleCadastroCategoria(e) {
+        e.preventDefault();
+
+        const data = {
+            nome,
+            filename,
+            path,
+        };
+
+        api.post('/categoria/cadastro', data, {headers: {Authorization: myToken}}).then(function (response) {
+
+            console.log(response.data.categoria);
+            alert(
+                "Categoria cadastrada com sucesso"
+              );
+            history.push('/categorias');
+
+          }).catch(function (error) {
+
+            console.log(myToken);
+            console.log({error});
+            alert(error.response.data.error);
+
+          });
+
+    }
+    
 
     return (
         <CategoriaMainContainer>
@@ -79,25 +111,33 @@ export default function AddCategoria() {
 
                     </CategoriaInfoTitleContainer>
 
-                    <InfoMainContainer>
+                    <InfoMainContainer onSubmit={handleCadastroCategoria}>
                         <AddCategoriaInputContainer>
                             <TitleAddCategoriaInput>
                             Nome da Categoria
                             </TitleAddCategoriaInput>
-                            <AddCategoriaInput placeholder="Ex: Frutas" />
+                            <AddCategoriaInput 
+                                placeholder="Ex: Frutas" 
+                                value={nome}
+                                onChange={e => setNome(e.target.value)}
+                            />
                             <br/><br/>
                             <TitleAddCategoriaInput>
                                 Imagem
                             </TitleAddCategoriaInput>
-                            <AddCategoriaInput />
+                            <AddCategoriaInput 
+                                value={filename}
+                                onChange={e => setFilename(e.target.value)}
+                            />
                         </AddCategoriaInputContainer>
 
                         <AddButtonContainer>
                             <CategoriaAddButton
-                                to="/categorias">
+                                type="submit">
                                 <AddCategoriaIcon />
                             </CategoriaAddButton>
                         </AddButtonContainer>
+
                     </InfoMainContainer>
 
                    

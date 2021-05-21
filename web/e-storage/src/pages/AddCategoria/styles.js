@@ -171,7 +171,7 @@ export const AddButtonContainer = styled.div`
     align-self: center;
     width: 90%;
 `;
-export const CategoriaAddButton = styled(Link)`
+export const CategoriaAddButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;

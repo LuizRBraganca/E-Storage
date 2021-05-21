@@ -31,6 +31,7 @@ export default function Login() {
         }).then(function (response) {
 
             console.log(response.data.user);
+            localStorage.setItem("token", response.data.token);
             history.push('/menu');
 
           }).catch(function (error) {

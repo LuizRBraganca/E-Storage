@@ -1,5 +1,6 @@
-import React from "react";
-import { useHistory } from 'react-router-dom'
+import api from "../../services/api";
+import React, { useState, useEffect} from "react";
+import { useLocation } from 'react-router-dom'
 import {
     ProdutoMainContainer,
     ProdutoInsideContainer,
@@ -20,6 +21,7 @@ import {
     AddProdutoIcon,
     AddButtonContainer,
     ProdutoContainer,
+    Produto,
     ProdutoButton,
     ProdutoIcon,
     ProdutoButtonTitle,
@@ -29,8 +31,38 @@ import {
 } from "./styles.js";
 
 export default function Produtos() {
+    const location = useLocation();
+    const categoriaNome = location.nome;
+    const myToken = `Bearer ${localStorage.getItem("token")}`;
 
-    const history = useHistory();
+    const [produto, setProduto] = useState([]);
+
+    async function handleDeleteProduto(nome) {
+        try {
+            await api.delete(`produto/${categoriaNome}`,  {
+                nome, 
+                headers: {
+                    Authorization: myToken,
+                }
+            });
+
+            setProduto(produto.filter(produto => produto.nome !== nome));
+        } catch (err) {
+            alert(err);
+        }
+    }
+
+
+    useEffect(() => {
+        api.get(`/produto/lista/${categoriaNome}`, {
+            headers: {
+                Authorization: myToken,
+            }
+        }).then(response => {
+            setProduto(response.data);
+        })
+    }, [myToken]);
+
 
     return (
         <ProdutoMainContainer>
@@ -77,33 +109,42 @@ export default function Produtos() {
                             <BackIcon />
                         </BackButton>
                         <ProdutoInfoTitle>
-                            Produtos - Frios
+                            Produtos - {categoriaNome}
                         </ProdutoInfoTitle>
 
                     </ProdutoInfoTitleContainer>
 
                     <InfoMainContainer>
                         <ProdutoContainer>
-                            <DeleteContainer>
-                                <DeleteButton>
-                                    <DeleteProduto
-                                        style={{ fontSize: 20 }}
-                                    />
-                                </DeleteButton>
-                            </DeleteContainer>
-                            <ProdutoButton to="/detalhe_produto">
-                                <ProdutoIcon 
-                                    style={{ fontSize: 50 }}
-                                />
-                                <ProdutoButtonTitle>
-                                    Leite Ninho Nestle
-                                </ProdutoButtonTitle>
-                            </ProdutoButton>
+                            {produto.map(produto => (
+                                <Produto key={produto.nome}>
+                                    <DeleteContainer>
+                                    <DeleteButton>
+                                        <DeleteProduto
+                                            onClick={() => handleDeleteProduto(produto.nome)}
+                                            style={{ fontSize: 20 }}
+                                        />
+                                    </DeleteButton>
+                                    </DeleteContainer>
+                                    <ProdutoButton to="/detalhe_produto">
+                                        <ProdutoIcon 
+                                            style={{ fontSize: 50 }}
+                                        />
+                                        <ProdutoButtonTitle>
+                                            {produto.nome}
+                                        </ProdutoButtonTitle>
+                                    </ProdutoButton>
+                                </Produto>
+
+                            ))}
                         </ProdutoContainer>
+                        
+                            
+                        
 
                         <AddButtonContainer>
                             <ProdutoAddButton
-                                to="/adicionar_produto">
+                                to={{pathname: '/adicionar_produto', categoriaNome: categoriaNome}}>
                                 <AddProdutoIcon />
                             </ProdutoAddButton>
                         </AddButtonContainer>

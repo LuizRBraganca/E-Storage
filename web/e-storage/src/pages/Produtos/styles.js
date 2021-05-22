@@ -168,7 +168,14 @@ export const ProdutoAddButton = styled(Link)`
     }
 `;
 
-export const ProdutoContainer = styled.div`
+export const ProdutoContainer = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.6rem;
+    list-style: none;
+`;
+
+export const Produto = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,12 +189,14 @@ export const ProdutoContainer = styled.div`
     border-radius: 0.5rem;
     box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.1);
 `;
-export const ProdutoButton = styled(Link)`
+export const ProdutoButton = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
 `;
 
 export const ProdutoButtonTitle = styled.p`
@@ -212,7 +221,7 @@ export const DeleteButton = styled.button`
     background: #f3f2f2;
     border: none;
     border-radius: 0.5rem;
-
+    cursor: pointer;
     &:hover{
         background: #cccccc;
         transition: 0.2s;

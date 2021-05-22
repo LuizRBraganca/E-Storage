@@ -180,9 +180,10 @@ export const CategoriaAddButton = styled.button`
     background: #ff5f6d;
     text-decoration: none;
     border-radius: 0.5rem;
+    border: none;
     box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.2);
     box-shadow: ${props => props.shadow };
-
+    cursor: pointer;
     &:hover{
         background: #cccccc;
         transition: 0.2s;

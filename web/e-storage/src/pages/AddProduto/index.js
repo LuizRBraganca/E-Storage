@@ -1,6 +1,6 @@
 import api from "../../services/api";
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import {
     ProdutoMainContainer,
     ProdutoInsideContainer,
@@ -29,6 +29,9 @@ import {
 } from "./styles.js";
 
 export default function AddProduto() {
+    const location = useLocation();
+    const categoriaNome = location.categoriaNome;
+
     const [nome, setNome] = useState("");
     const [marca, setMarca] = useState("");
     const [peso, setPeso] = useState("1");
@@ -36,9 +39,11 @@ export default function AddProduto() {
     const [preco, setPreco] = useState("");
     const [detalhamento, setDetalhamento] = useState("");
     const [filename, setFilename] = useState("");
-    const [path, setPath] = useState("C:\\Users\\isabe\\E-Storage\\backend\\uploads\\fa11f498d13871bc.jpg");
+    const [path, setPath] = useState("C:\\Users\\isabe\\E-Storage\\backend\\uploads\\2aaa06feb4272f86.jpg");
+
     const myToken = `Bearer ${localStorage.getItem("token")}`;
     const history = useHistory();
+
 
     async function handleCadastroProduto(e) {
         e.preventDefault();
@@ -54,14 +59,13 @@ export default function AddProduto() {
             path,
         };
 
-        //`/produto/cadastro/${nome}
-        api.post('/produto/cadastro/Frios', data, {headers: {Authorization: myToken}}).then(function (response) {
+        api.post(`/produto/cadastro/${categoriaNome}`, data, {headers: {Authorization: myToken}}).then(function (response) {
 
             console.log(response.data.categoria);
             alert(
                 "Produto cadastrado com sucesso"
               );
-            history.push('/produtos');
+              history.push({pathname: '/produtos', nome: categoriaNome});
 
           }).catch(function (error) {
 

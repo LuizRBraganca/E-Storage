@@ -145,11 +145,19 @@ export const CategoriaAddButton = styled(Link)`
     }
 `;
 
-export const CategoriaContainer = styled.div`
+export const CategoriasContainer = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.6rem;
+    list-style: none;
+`;
+
+export const Categoria = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     margin-top: 1rem;   
     margin-left: 2rem;
     height: 20vh;
@@ -159,16 +167,19 @@ export const CategoriaContainer = styled.div`
     border-radius: 0.5rem;
     box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.1);
 `;
-export const CategoriaButton = styled(Link)`
+
+export const CategoriaButton = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
 `;
 
 export const CategoriaButtonTitle = styled.p`
-    font-size: 1.2rem;
+    font-size: 1rem;
     color:  #ff5f6d;
 `;
 
@@ -188,7 +199,7 @@ export const DeleteButton = styled.button`
     background: #f3f2f2;
     border: none;
     border-radius: 0.5rem;
-
+    cursor: pointer;
     &:hover{
         background: #cccccc;
         transition: 0.2s;

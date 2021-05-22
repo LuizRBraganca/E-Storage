@@ -1,4 +1,5 @@
-import React from "react";
+import api from "../../services/api";
+import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom'
 import {
     CategoriaMainContainer,
@@ -17,7 +18,8 @@ import {
     CategoriaAddButton,
     AddCategoriaIcon,
     AddButtonContainer,
-    CategoriaContainer,
+    CategoriasContainer,
+    Categoria,
     CategoriaButton,
     CategoriaIcon,
     CategoriaButtonTitle,
@@ -27,8 +29,39 @@ import {
 } from "./styles.js";
 
 export default function Categorias() {
+    const [categoria, setCategoria] = useState([]);
+    const myToken = `Bearer ${localStorage.getItem("token")}`;
+
 
     const history = useHistory();
+
+    async function handleDeleteCategoria(nome) {
+        try {
+            await api.delete(`categoria/${nome}`, {
+                headers: {
+                    Authorization: myToken,
+                }
+            });
+
+            setCategoria(categoria.filter(categoria => categoria.nome !== nome));
+        } catch (err) {
+            alert(err);
+        }
+    }
+
+    function handleCategoriaProduto(nome) {
+        history.push({pathname: '/produtos', nome: nome});
+    }
+
+    useEffect(() => {
+        api.get('/categoria/lista', {
+            headers: {
+                Authorization: myToken,
+            }
+        }).then(response => {
+            setCategoria(response.data);
+        })
+    }, [myToken]);
 
     return (
         <CategoriaMainContainer>
@@ -80,23 +113,35 @@ export default function Categorias() {
                     </CategoriaInfoTitleContainer>
 
                     <InfoMainContainer>
-                        <CategoriaContainer>
-                            <DeleteContainer>
-                                <DeleteButton>
-                                    <DeleteCategoria
-                                        style={{ fontSize: 20 }}
-                                    />
-                                </DeleteButton>
-                            </DeleteContainer>
-                            <CategoriaButton to="/produtos">
-                                <CategoriaIcon 
-                                    style={{ fontSize: 50 }}
-                                />
-                                <CategoriaButtonTitle>
-                                    Frios
-                                </CategoriaButtonTitle>
-                            </CategoriaButton>
-                        </CategoriaContainer>
+
+                        <CategoriasContainer>
+                            
+                            {categoria.map(categoria => (
+                                <Categoria key={categoria.nome}>
+                                    <DeleteContainer>
+                                        <DeleteButton>
+                                            <DeleteCategoria
+                                                onClick={() => handleDeleteCategoria(categoria.nome)}
+                                                style={{ fontSize: 20 }}
+                                            />
+                                        </DeleteButton>
+                                    </DeleteContainer>
+
+                                    <CategoriaButton 
+                                        onClick={() => handleCategoriaProduto(categoria.nome)}
+                                    >
+                                        <CategoriaIcon 
+                                            style={{ fontSize: 50 }}
+                                        />
+                                        <CategoriaButtonTitle>
+                                            {categoria.nome}
+                                        </CategoriaButtonTitle>
+                                    </CategoriaButton>
+                                </Categoria>
+                            ))}
+                                
+                        </CategoriasContainer>
+                        
 
                         <AddButtonContainer>
                             <CategoriaAddButton

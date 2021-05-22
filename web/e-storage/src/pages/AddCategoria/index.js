@@ -29,7 +29,7 @@ import {
 export default function AddCategoria() {
     const [nome, setNome] = useState("");
     const [filename, setFilename] = useState("");
-    const [path, setPath] = useState("C:\\Users\\isabe\\E-Storage\\backend\\uploads\\fa11f498d13871bc.jpg");
+    const [path, setPath] = useState("C:\\Users\\isabe\\E-Storage\\backend\\uploads\\2aaa06feb4272f86.jpg");
     const myToken = `Bearer ${localStorage.getItem("token")}`;
     const history = useHistory();
 

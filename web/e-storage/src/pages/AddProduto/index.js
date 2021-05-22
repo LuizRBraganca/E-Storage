@@ -59,6 +59,8 @@ export default function AddProduto() {
             path,
         };
 
+        /* api.post('/upload', data) */
+
         api.post(`/produto/cadastro/${categoriaNome}`, data, {headers: {Authorization: myToken}}).then(function (response) {
 
             console.log(response.data.categoria);
@@ -118,7 +120,7 @@ export default function AddProduto() {
                     
                     <ProdutoInfoTitleContainer>
                         <BackButton
-                        to="/produtos">
+                        to={{pathname: '/produtos', nome: categoriaNome}}>
                             <BackIcon />
                         </BackButton>
                         <ProdutoInfoTitle>
@@ -180,6 +182,7 @@ export default function AddProduto() {
                                 Imagem
                                 </TitleAddProdutoInput>
                                 <AddProdutoInput 
+                                    type='file'
                                     value={filename}
                                     onChange={e => setFilename(e.target.value)}
                                 />

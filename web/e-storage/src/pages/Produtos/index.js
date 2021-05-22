@@ -1,6 +1,6 @@
 import api from "../../services/api";
 import React, { useState, useEffect} from "react";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import {
     ProdutoMainContainer,
     ProdutoInsideContainer,
@@ -32,6 +32,7 @@ import {
 
 export default function Produtos() {
     const location = useLocation();
+    const history = useHistory();
     const categoriaNome = location.nome;
     const myToken = `Bearer ${localStorage.getItem("token")}`;
 
@@ -40,7 +41,9 @@ export default function Produtos() {
     async function handleDeleteProduto(nome) {
         try {
             await api.delete(`produto/${categoriaNome}`,  {
-                nome, 
+                data: {
+                    nome: nome
+                },
                 headers: {
                     Authorization: myToken,
                 }
@@ -52,6 +55,9 @@ export default function Produtos() {
         }
     }
 
+    function handleProdutoDetalhamento(categoria, nome) {
+        history.push({pathname: '/detalhe_produto', categoriaNome: categoria, produtoNome: nome});
+    }
 
     useEffect(() => {
         api.get(`/produto/lista/${categoriaNome}`, {
@@ -126,7 +132,9 @@ export default function Produtos() {
                                         />
                                     </DeleteButton>
                                     </DeleteContainer>
-                                    <ProdutoButton to="/detalhe_produto">
+                                    <ProdutoButton
+                                        onClick={() => handleProdutoDetalhamento(categoriaNome, produto.nome)}
+                                    >
                                         <ProdutoIcon 
                                             style={{ fontSize: 50 }}
                                         />

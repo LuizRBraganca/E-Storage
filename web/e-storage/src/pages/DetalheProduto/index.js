@@ -1,5 +1,6 @@
-import React from "react";
-import { useHistory } from 'react-router-dom'
+import api from "../../services/api";
+import React, { useState, useEffect} from "react";
+import { useHistory, useLocation } from 'react-router-dom'
 import { GridRowsProp, GridColDef} from '@material-ui/data-grid';
 import {
     ProdutoMainContainer,
@@ -28,9 +29,47 @@ import {
 } from "./styles.js";
 
 export default function DetalheProduto() {
-
+    const location = useLocation();
+    const myToken = `Bearer ${localStorage.getItem("token")}`;
+    const categoriaNome = location.categoriaNome;
+    const produtoNome = location.produtoNome;
     const history = useHistory();
 
+    const [produto, setProduto] = useState([]);
+
+    useEffect(() => {
+        api.get(`/produto/${categoriaNome}/${produtoNome}`, 
+        {    
+            headers: {
+                Authorization: myToken,
+            }
+        }).then(response => {
+            setProduto(response.data.produto);
+
+
+        }).catch(function (error) {
+
+            console.log(error);
+
+          });
+    }, [myToken]);
+
+    async function handleDeleteProduto(nome) {
+        try {
+            await api.delete(`produto/${categoriaNome}`,  {
+                data: {
+                    nome: nome
+                },
+                headers: {
+                    Authorization: myToken,
+                }
+            });
+            
+            history.push({pathname: '/produtos', nome: categoriaNome});
+        } catch (err) {
+            alert(err);
+        }
+    };
       
     const columns: GridColDef[] = [
         { field: 'col1', headerName: 'ID', width: 100 },
@@ -41,7 +80,7 @@ export default function DetalheProduto() {
     ];
 
     const rows: GridRowsProp = [
-        { id: 1, col1: '1', col2: 'Leite Ninho', col3: 'Nestle', col4: '500g', col5: '20,00' },
+        { id: 1, col1: produto.id, col2: produto.nome, col3: produto.marca, col4: produto.medida, col5: produto.preco },
     ];
 
     return (
@@ -85,11 +124,11 @@ export default function DetalheProduto() {
                     
                     <ProdutoInfoTitleContainer>
                         <BackButton
-                        to="/produtos">
+                        to={{pathname: '/produtos', nome: categoriaNome}}>
                             <BackIcon />
                         </BackButton>
                         <ProdutoInfoTitle>
-                            Produtos - Detalhamento
+                            Detalhamento - {produtoNome}
                         </ProdutoInfoTitle>
 
                     </ProdutoInfoTitleContainer>
@@ -101,11 +140,13 @@ export default function DetalheProduto() {
                                 Descrição:
                             </DetalhamentoTitle>
                             <DetalhamentoInfo>
-                                Lata de leite ninho
+                                {produto.detalhamento}
                             </DetalhamentoInfo>
                         </DetalheContainer>
                         <DeleteButtonContainer>
-                            <ProdutoDeleteButton>
+                            <ProdutoDeleteButton
+                                onClick={() => handleDeleteProduto(produto.nome)}
+                            >
                                 <TrashIcon/>
                             </ProdutoDeleteButton>
                         </DeleteButtonContainer> 

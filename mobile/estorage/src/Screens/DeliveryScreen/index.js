@@ -31,16 +31,16 @@ function DeliveryScreen({navigation}) {
         <HeaderButtonsView>
           <HeaderButtons
             onPress={() => navigation.navigate('MenuScreen')}>
-            <Icon name="person" size={70} color="#000" /></HeaderButtons>
+            <Icon name="person" size={70} color="#F5B27A" /></HeaderButtons>
 
           <HeaderButtons
            onPress={() => navigation.navigate('CategoriesScreen')}>
-             <Icon name="shopping-basket" size={70} color="#000" />
+             <Icon name="shopping-basket" size={70} color="#F5B27A" />
            </HeaderButtons>
 
           <HeaderButtons
             onPress={() => alert('Ja esta na pagina')}>
-              <Icon name="motorcycle" size={70} color="#000" />
+              <Icon name="motorcycle" size={70} color="#F5B27A" />
             </HeaderButtons>
         </HeaderButtonsView>
       </HeaderView>

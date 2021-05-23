@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export const ScreenAreaView = styled.ScrollView`
+export const ScreenAreaView = styled.View`
     flex: 1;
     background-color: #ffffff;
 `;
@@ -55,7 +55,7 @@ export const UserInput = styled.TextInput`
     background-color: #fff;
     fontSize: 23px;
     padding-start: 15px;
-    shadow-offset: {width: 5, height: 5};
+    shadow-offset: {width: 5; height: 5};
     shadow-opacity: 0.3;
 `;
 export const PasswordInput = styled.TextInput`
@@ -68,7 +68,7 @@ export const PasswordInput = styled.TextInput`
     background-color: #fff;
     fontSize: 23px;
     padding-start: 15px;
-    shadow-offset: {width: 5, height: 5};
+    shadow-offset: {width: 5; height: 5};
     shadow-opacity: 0.3;
 `;
 export const ButtonsView = styled.View`
@@ -82,7 +82,7 @@ export const LoginButton = styled.TouchableOpacity`
     margin-bottom: 20px;
     min-width: 70%;
     align-items: center;
-    shadow-offset: {width: 5, height: 5};
+    shadow-offset: {width: 5; height: 5};
     shadow-opacity: 0.3;
 `; 
 export const ButtonsText = styled.Text`

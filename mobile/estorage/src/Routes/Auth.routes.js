@@ -7,6 +7,7 @@ import CategoriesScreen from '../Screens/CategoriesScreen';
 import ProductsScreen from '../Screens/ProductsScreen';
 import ListScreen from '../Screens/ListScreen';
 import StorageScreen from '../Screens/StorageScreen';
+import HistoryScreen from '../Screens/HistoryScreen';
 
 const App = createStackNavigator();
 
@@ -29,6 +30,7 @@ const AuthRoutes = () => (
     <App.Screen name="ProductsScreen" component={ProductsScreen} />
     <App.Screen name="ListScreen" component={ListScreen} />
     <App.Screen name="StorageScreen" component={StorageScreen} />
+    <App.Screen name="HistoryScreen" component={HistoryScreen} />
   </App.Navigator>
 );
 

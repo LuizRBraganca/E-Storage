@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export const ScreenAreaView = styled.ScrollView`
+export const ScreenAreaView = styled.View`
     flex: 1;
     background-color: #ffffff;
 `;

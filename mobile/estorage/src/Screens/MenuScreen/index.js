@@ -34,19 +34,19 @@ const [modalVisible, setModalVisible] = useState('');
         <HeaderButtonsView>
           <HeaderButtons
             onPress={() => alert("Ja esta na pagina")}>
-              <Icon name="person" size={70} color="#000" />
+              <Icon name="person" size={70} color="#F5B27A" />
           </HeaderButtons>
           
           <HeaderButtons
             onPress={() =>
               navigation.navigate('CategoriesScreen')}>
-              <Icon name="shopping-basket" size={70} color="#000" />
+              <Icon name="shopping-basket" size={70} color="#F5B27A" />
             </HeaderButtons>
 
           <HeaderButtons
             onPress={() =>
               navigation.navigate('DeliveryScreen')}>
-              <Icon name="motorcycle" size={70} color="#000" />
+              <Icon name="motorcycle" size={70} color="#F5B27A" />
             </HeaderButtons>
         </HeaderButtonsView>
       </HeaderView>
@@ -92,23 +92,24 @@ const [modalVisible, setModalVisible] = useState('');
       <BottomView>
         <ButtonsView>
           <ButtonsTitle>Scan</ButtonsTitle>
-          <BottomButtons onPress={() => setModalVisible(true)}><Icon name="filter-center-focus" size={100} color="#000" /></BottomButtons>
+          <BottomButtons onPress={() => setModalVisible(true)}><Icon name="filter-center-focus" size={100} color="#F5B27A" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Lista</ButtonsTitle>
           <BottomButtons onPress={() => navigation.navigate('ListScreen')}
-              ><Icon name="post-add" size={100} color="#000" /></BottomButtons>
+              ><Icon name="post-add" size={100} color="#F5B27A" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Historico</ButtonsTitle>
-          <BottomButtons><Icon name="receipt" size={100} color="#000" /></BottomButtons>
+          <BottomButtons onPress={() => navigation.navigate('HistoryScreen')}><Icon name="receipt" size={100} color="#F5B27A" /></BottomButtons>
         </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Estoque</ButtonsTitle>
-          <BottomButtons onPress={() => navigation.navigate('StorageScreen')}><Icon name="storage" size={100} color="#000" /></BottomButtons>
+          <BottomButtons onPress={() => navigation.navigate('StorageScreen')}>
+            <Icon name="storage" size={100} color="#F5B27A" /></BottomButtons>
         </ButtonsView>
       </BottomView>
     </ScreenAreaView>

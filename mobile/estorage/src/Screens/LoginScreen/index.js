@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../services/api';
 import {
   ScreenAreaView,
@@ -19,21 +20,21 @@ function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  async function signIn() {
-    console.log(email);
-    console.log(senha);
-
+function signIn() {
     api.post('/authenticate/cliente', {
-        email,
-        senha,
-    }).then(function (response) {
-        console.log(response.data.user);
-        console.log(response.data.token);
-       
-      }).catch(function (error) {
-        console.log(error);
-        alert('Email ou senha incorretos');
-      });
+      email,
+      senha,
+    }).then(async function (response) {
+      console.log(response.data.user);
+      console.log(response.data.token);
+      const jsonValue = JSON.stringify(response.data.user);
+      await AsyncStorage.setItem('@token', `Bearer ${response.data.token}`);
+      await AsyncStorage.setItem('@user', jsonValue);
+      navigation.navigate('MenuScreen');
+
+    }).catch(function (error) {
+      alert(error);
+    });
   }
 
   return (
@@ -53,7 +54,7 @@ function LoginScreen({ navigation }) {
           <UserInput
             onChangeText={setEmail}
             value={email}
-            placeholder="Usuario"
+            placeholder="E-mail"
             placeholderTextColor="#4D5656FF"
             autoCapitalize='none'
             keyboardType='email-address'

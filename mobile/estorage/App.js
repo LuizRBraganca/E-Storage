@@ -7,11 +7,7 @@ export default function App() {
     
   return (
     <NavigationContainer>
-      { token =! null ? (
-        <AuthRoutes/>
-    ):
         <AppRoutes/>
-    }  
     </NavigationContainer>
   );
 }

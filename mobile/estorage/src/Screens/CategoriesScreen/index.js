@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import {
   ScreenAreaView,
   HeaderView,
@@ -23,22 +23,28 @@ function CategoriesScreen({ navigation }) {
   const [categorias, setCategorias] = useState([]);
   const [token, setToken] = useState('');
   const [user, setUser] = useState([]);
+  const columns = 3;
+
+  function navigateToProdutos(categoria) {
+    navigation.navigate('ProductsScreen', { categoria });
+  }
+
 
   useEffect(() => {
     async function loadStorageData() {
       const token = await AsyncStorage.getItem('@token')
       const user = await AsyncStorage.getItem('@user')
-  
+
       setToken(token);
       console.log(token);
       setUser(JSON.parse(user));
-      
+
       api.get('/categoria/lista', {
         headers: { Authorization: token }
       }).then(function (response) {
         console.log(response.data);
         setCategorias(response.data)
-  
+
       }).catch(function (error) {
         //console.log(token);
         alert(error);
@@ -48,7 +54,7 @@ function CategoriesScreen({ navigation }) {
     loadStorageData();
     //console.log(token);
 
-  
+
   }, []);
 
 
@@ -101,37 +107,22 @@ function CategoriesScreen({ navigation }) {
           }}></View>
       </View>
       <BottomView>
-        <ButtonsView>
-          <ButtonsTitle>Bebidas</ButtonsTitle>
-          <BottomButtons
-            onPress={() => navigation.navigate('ProductsScreen')}
-          ></BottomButtons>
-        </ButtonsView>
+        <FlatList
+          data={categorias}
+          keyExtractor={categorias => String(categorias.nome)}
+          showsVerticalScrollIndicator={false}
+          numColumns={columns}
+          renderItem={({ item: categorias }) => (
+            <ButtonsView>
+              <ButtonsTitle>{categorias.nome}</ButtonsTitle>
+              <BottomButtons
+                onPress={() => navigateToProdutos(categorias)}
+              ></BottomButtons>
 
-        <ButtonsView>
-          <ButtonsTitle>Frios</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
+            </ButtonsView>
 
-        <ButtonsView>
-          <ButtonsTitle>Hortifruti</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ButtonsTitle>Limpeza</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ButtonsTitle>Confeitaria</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ButtonsTitle>Pescados</ButtonsTitle>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
+          )}
+        />
 
       </BottomView>
     </ScreenAreaView>

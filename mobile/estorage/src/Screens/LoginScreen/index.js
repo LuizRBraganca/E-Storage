@@ -28,7 +28,8 @@ function signIn() {
       console.log(response.data.user);
       console.log(response.data.token);
       const jsonValue = JSON.stringify(response.data.user);
-      await AsyncStorage.setItem('@token', `Bearer ${response.data.token}`);
+      await AsyncStorage.setItem('@token', `Bearer ${response.data.token}`
+      );
       await AsyncStorage.setItem('@user', jsonValue);
       navigation.navigate('MenuScreen');
 

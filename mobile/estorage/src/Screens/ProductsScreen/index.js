@@ -1,5 +1,6 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import {
   ScreenAreaView,
   HeaderView,
@@ -15,9 +16,52 @@ import {
   ConfirmOrCancelButton,
   ConfirmOrCancelButtonText,
   ButtonsText,
+  ButtonsTitle
 } from './styles';
+import api from '../../services/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function ProductsScreen({navigation}) {
+function ProductsScreen({ navigation }) {
+  const [produto, setProduto] = useState([]);
+  const route = useRoute();
+  const [token, setToken] = useState('');
+  const [user, setUser] = useState([]);
+  const columns = 3;
+
+  const categoria = route.params.categoria;
+  const categoriaNome = categoria.nome;
+
+  
+
+  useEffect(() => {
+    async function loadStorageData() {
+      const token = await AsyncStorage.getItem('@token')
+      const user = await AsyncStorage.getItem('@user')
+
+      console.log(categoria)
+
+      setToken(token);
+      console.log(token);
+      setUser(JSON.parse(user));
+
+      api.get(`/produto/lista/${categoriaNome}`, {
+        headers: { Authorization: token }
+      }).then(function (response) {
+        console.log(response.data);
+        setProduto(response.data)
+
+      }).catch(function (error) {
+        //console.log(token);
+        alert(error);
+      });
+    }
+
+    loadStorageData();
+    //console.log(token);
+
+
+  }, []);
+
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -28,7 +72,7 @@ function ProductsScreen({navigation}) {
         <SearchInput placeholder="Buscar..." placeholderTextColor="#4D5656FF" />
       </HeaderView>
 
-      <View style={{height: '10%'}}>
+      <View style={{ height: '10%' }}>
         <View
           style={{
             ...StyleSheet.absoluteFillObject,
@@ -43,56 +87,23 @@ function ProductsScreen({navigation}) {
           }}></View>
       </View>
 
-      <ConfirmOrCancelView>
-        <ButtonsView>
-          <ConfirmOrCancelButton>
-            <ConfirmOrCancelButtonText>Cervejas</ConfirmOrCancelButtonText>
-          </ConfirmOrCancelButton>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ConfirmOrCancelButton>
-            <ConfirmOrCancelButtonText>Destilados</ConfirmOrCancelButtonText>
-          </ConfirmOrCancelButton>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ConfirmOrCancelButton>
-            <ConfirmOrCancelButtonText>Sucos</ConfirmOrCancelButtonText>
-          </ConfirmOrCancelButton>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ConfirmOrCancelButton>
-            <ConfirmOrCancelButtonText>Outros</ConfirmOrCancelButtonText>
-          </ConfirmOrCancelButton>
-        </ButtonsView>
-      </ConfirmOrCancelView>
-
       <BottomView>
-        <ButtonsView>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
+      <FlatList
+          data={produto}
+          keyExtractor={produto => String(produto.nome)}
+          showsVerticalScrollIndicator={false}
+          numColumns={columns}
+          renderItem={({ item }) => (
+            <>
+        
+            <ButtonsView>
+            <ButtonsTitle>{item.nome}</ButtonsTitle>
+              <BottomButtons></BottomButtons>
+            </ButtonsView></>
+          )}
+        />
+        
 
-        <ButtonsView>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <BottomButtons></BottomButtons>
-        </ButtonsView>
       </BottomView>
     </ScreenAreaView>
   );

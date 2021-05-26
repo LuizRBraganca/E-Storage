@@ -32,13 +32,15 @@ function ProductsScreen({ navigation }) {
   const categoriaNome = categoria.nome;
 
   
+  function navigateToProdutoDetalhamento(categoria, produto) {
+    navigation.navigate('DetailScreen', { categoria, produto });
+  }
 
   useEffect(() => {
     async function loadStorageData() {
       const token = await AsyncStorage.getItem('@token')
       const user = await AsyncStorage.getItem('@user')
 
-      console.log(categoria)
 
       setToken(token);
       console.log(token);
@@ -47,7 +49,6 @@ function ProductsScreen({ navigation }) {
       api.get(`/produto/lista/${categoriaNome}`, {
         headers: { Authorization: token }
       }).then(function (response) {
-        console.log(response.data);
         setProduto(response.data)
 
       }).catch(function (error) {
@@ -97,8 +98,8 @@ function ProductsScreen({ navigation }) {
             <>
         
             <ButtonsView>
-            <ButtonsTitle>{item.nome}</ButtonsTitle>
-              <BottomButtons></BottomButtons>
+              <ButtonsTitle>{item.nome}</ButtonsTitle>
+                <BottomButtons onPress={() => navigateToProdutoDetalhamento(categoria, item )}></BottomButtons>
             </ButtonsView></>
           )}
         />

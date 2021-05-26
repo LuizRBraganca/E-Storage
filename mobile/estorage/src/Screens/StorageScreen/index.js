@@ -17,7 +17,7 @@ import {
 } from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-function CategoriesScreen({navigation}) {
+function StorageScreen({navigation}) {
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -45,13 +45,13 @@ function CategoriesScreen({navigation}) {
       <BottomView>
         <ListView>
           <ListItemView>
-            <ListItemText>Guanara, Garoto</ListItemText>
+            <ListItemText>Guarana, Garoto</ListItemText>
           </ListItemView>
           <ListItemView>
-            <ListItemText>Guanara, Garoto</ListItemText>
+            <ListItemText>Guarana, Garoto</ListItemText>
           </ListItemView>
           <ListItemView>
-            <ListItemText>Guanara, Garoto</ListItemText>
+            <ListItemText>Guarana, Garoto</ListItemText>
           </ListItemView>
         </ListView>
       
@@ -61,12 +61,6 @@ function CategoriesScreen({navigation}) {
               <ConfirmOrCancelButtonText>Voltar</ConfirmOrCancelButtonText>
             </ConfirmOrCancelButton>
           </ButtonsView>
-
-          <ButtonsView>
-            <ConfirmOrCancelButton>
-              <ConfirmOrCancelButtonText>Avançar</ConfirmOrCancelButtonText>
-            </ConfirmOrCancelButton>
-          </ButtonsView>
         </ConfirmOrCancelView>
 </BottomView>
 
@@ -74,4 +68,4 @@ function CategoriesScreen({navigation}) {
   );
 }
 
-export default CategoriesScreen;
+export default StorageScreen;

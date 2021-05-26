@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-export const ScreenAreaView = styled.ScrollView`
+export const ScreenAreaView = styled.SafeAreaView`
     flex: 1;
     background-color: #ffffff;
 `;
@@ -21,10 +21,11 @@ export const ImageView = styled.View`
 export const WelcomeText = styled.Text`
     font-weight: bold;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     flex-wrap: wrap;
-    max-width: 50%;
+    max-width: 70%;
     align-self: center;
+    margin: 0px 10px 30px 10px;
 `;
 export const UserView = styled.View`
     align-self: center;
@@ -35,7 +36,7 @@ export const UserView = styled.View`
 export const BottomView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0px 5px 20px;
+    margin: 0px 0px 0px 0px;
     justify-content: center;
 `;
 export const ButtonsView = styled.View`
@@ -63,10 +64,10 @@ export const SearchInput = styled.TextInput`
 `;
 export const ListView = styled.View`
     width: 300px;
-    height: 450px;
+    height: 320px;
     background-color: #FFC695;
     border-radius: 10px;
-    margin-horizontal: 10px;
+    margin: 10px 10px 10px 10px;
     align-items: center;
 `;
 export const ListItemView = styled.View`
@@ -79,12 +80,12 @@ export const ListItemView = styled.View`
 `;
 export const ListItemText = styled.Text`
     font-weight: bold;
-    color: #000;
+    color: #4D5656FF;
     font-size: 20px;
     margin: 3%;
 `;
 export const ConfirmOrCancelView = styled.View`
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   flex-direction: row;
   margin-top: 5%;
   justify-content: center;
@@ -110,4 +111,52 @@ export const ConfirmOrCancelButton = styled.TouchableOpacity`
 export const ConfirmOrCancelButtonText = styled.Text`
   font-size: 20px;
   color: #3f3f3f;
+`;
+export const SendButton = styled.TouchableOpacity`
+    width: 100px;
+    height: 40px;
+    margin-horizontal: 20px;
+    border-radius: 8px;
+    background-color: #FF7A65;
+    margin-bottom: 20px;
+    align-items: center;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
+    justify-content: center;
+`;
+export const SendButtonText = styled.Text`
+  font-size: 20px;
+  color: #3f3f3f;
+`;
+export const QuantidadeInput = styled.TextInput`
+    height: 40;
+    margin-vertical: 15;
+    margin-horizontal: 20;
+    width: 15%;
+    border-radius: 10;
+    align-items: center;
+    background-color: #fff;
+    font-Size: 17px;
+    padding-start: 15;
+    shadow-color: #000;
+    shadow-offset: {
+        width: 0;
+        height: 3;
+    };
+    shadow-opacity: 0.29;
+    shadow-radius: 4.65;
+    elevation: 7;
+    margin: 5px 10px 1px 1px;
+`;
+export const QuantidadeText = styled.Text`
+    font-weight: bold;
+    color: #4D5656FF;
+    font-size: 20px;
+    margin-top: 20%;
 `;

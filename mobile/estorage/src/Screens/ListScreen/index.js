@@ -48,10 +48,10 @@ function CategoriesScreen({navigation}) {
             <ListItemText>Leite em Po, Nestle</ListItemText>
           </ListItemView>
           <ListItemView>
-            <ListItemText>Leite em Po, Nestle</ListItemText>
+            <ListItemText>Refrigerante, Coca Cola</ListItemText>
           </ListItemView>
           <ListItemView>
-            <ListItemText>Leite em Po, Nestle</ListItemText>
+            <ListItemText>Leite desnatado, Italac</ListItemText>
           </ListItemView>
         </ListView>
       

@@ -108,6 +108,6 @@ export const ConfirmOrCancelButton = styled.TouchableOpacity`
     justify-content: center;
 `;
 export const ConfirmOrCancelButtonText = styled.Text`
-  font-size: 24px;
+  font-size: 20px;
   color: #3f3f3f;
 `;

@@ -9,7 +9,7 @@ exports.up = function(knex) {
     table.string('status').notNullable();
     table.string('pagamento').notNullable();
     table.float('total').notNullable();
-    table.float('troco').notNullable();
+    table.float('troco').defaultTo('0,00');
   });
 };
 

@@ -22,18 +22,23 @@ import {
     ListaContainer,
     TabelaProduto,
     BottomDiv,
+    EndereçoContainer,
     EndereçoInfo,
+    StatusButton,
 } from "./styles.js";
 
 export default function DetalhamentoPedido() {
     const location = useLocation();
     const history = useHistory();
-    const idPedido = "b9c24320-f505-45ab-9c34-cd6d096ad0df";
+    const idPedido = "812c99c9-9745-443f-939e-1ab71979dfc4";
     const myToken = `Bearer ${localStorage.getItem("token")}`;
 
+    const [status, setStatus] = useState("");
     const [pedido, setPedido] = useState([]);
+    const [produtoPedido, setProdutoPedido] = useState([]);
 
     useEffect(() => {
+        const myToken = `Bearer ${localStorage.getItem("token")}`;
         api.get(`/pedido/${idPedido}`, {
             headers: {
                 Authorization: myToken,
@@ -41,8 +46,36 @@ export default function DetalhamentoPedido() {
         }).then(response => {
             setPedido(response.data);
         })
-    }, [myToken]);
 
+        api.get(`/pedido/lista/${idPedido}`, {
+            headers: {
+                Authorization: myToken,
+            }
+        }).then(response => {
+            setProdutoPedido(response.data);
+        })
+
+       
+    }, []);
+
+
+    function handleMudarStatus(status) {
+        
+        api.patch(`/pedido/${idPedido}/${status}`,
+        {
+            headers: {Authorization: myToken}}).then(function (response) {
+
+           alert(
+               "Status alterado com sucesso"
+             );
+             history.push({pathname: '/detalhamento_pedido', idPedido: idPedido});
+
+         }).catch(function (error) {
+
+           alert(error.response.data.error);
+
+         });
+    }
 
     const columns1: GridColDef[] = [
         { field: 'col1', headerName: 'Nome do Cliente', width: 200 },
@@ -54,7 +87,7 @@ export default function DetalhamentoPedido() {
     ];
 
     const rows1: GridRowsProp = [
-        { id: 1, col1: pedido.idCliente , col2: pedido.status , col3: pedido.horarioMarcado, col4: pedido.total, col5: pedido.pagamento, col6: pedido.troco},
+        { id: 1, col1: pedido.nomeCliente , col2: pedido.status , col3: pedido.horarioMarcado, col4: pedido.total, col5: pedido.pagamento, col6: pedido.troco},
     ];
 
     const columns2: GridColDef[] = [
@@ -65,10 +98,7 @@ export default function DetalhamentoPedido() {
         
     ];
 
-    const rows2: GridRowsProp = [
-        { id: 1, col1: 'Leite Ninho em Pó - Saco 400g', col2: '2', col3: '20,00', col4: '40,00'},
-        { id: 2, col1: 'Queijo Coalho Sadia 6 unidades', col2: '3', col3: '15,97', col4: '47,93'},
-    ];
+  
 
 
     return (
@@ -115,7 +145,8 @@ export default function DetalhamentoPedido() {
                             <BackIcon />
                         </BackButton>
                         <PedidoInfoTitle>
-                            Pedidos - {idPedido}
+                            Pedidos - Detalhamento
+
                         </PedidoInfoTitle>
                     </PedidoInfoTitleContainer>
                     <InfoMainContainer>
@@ -127,17 +158,17 @@ export default function DetalhamentoPedido() {
                                 size="small" />
                                 <ListaTitle>Lista de Compras</ListaTitle>
                             </PedidoInfoTitleContainer>
-                            <TabelaProduto rows={rows2} columns={columns2} hideFooter autoHeight checkboxSelection={true} />
+                            <TabelaProduto rows={
+                                produtoPedido.map(produtoPedido => (
+                                    { id: produtoPedido.id, col1: produtoPedido.nomeProduto+" Sadia 200g", col2: produtoPedido.quantidade, col3: produtoPedido.preco, col4: produtoPedido.totalParcial}
+                                ))
+                            } columns={columns2} hideFooter autoHeight checkboxSelection={true} />
                         </ListaContainer>
                         
                         <BottomDiv>
-                            <EndereçoInfo></EndereçoInfo>
-                            <PedidoInfoTitleContainer>
-                                    <AssignementIcon
-                                    iconColor="#ff5f6d"
-                                    size="small" />
-                                    <ListaTitle>Alterar Status Pedido</ListaTitle>
-                            </PedidoInfoTitleContainer>
+                           
+                            <StatusButton id="Cancelado" onClick={handleMudarStatus("Cancelado")}>Cancelar Pedido</StatusButton>
+                            <StatusButton id="Concluído" onClick={handleMudarStatus("Concluído")}>Concluir Pedido</StatusButton>
                         </BottomDiv>
                         
                     </InfoMainContainer>

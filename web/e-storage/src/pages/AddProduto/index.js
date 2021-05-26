@@ -61,7 +61,11 @@ export default function AddProduto() {
 
         /* api.post('/upload', data) */
 
-        api.post(`/produto/cadastro/${categoriaNome}`, data, {headers: {Authorization: myToken}}).then(function (response) {
+        api.post(`/produto/cadastro/${categoriaNome}`,
+            data, 
+            {
+             headers: {Authorization: myToken}})
+             .then(function (response) {
 
             console.log(response.data.categoria);
             alert(

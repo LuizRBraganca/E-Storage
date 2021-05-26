@@ -174,12 +174,39 @@ export const BottomDiv = styled.div`
     display: flex;
     flex-direction: row;    
     align-items: center;
-    justify-content: center;
-    margin-left: 1rem; 
+    justify-content: space-between; 
+    margin-left: 1rem;
+    width: 25vw;
+`;
+
+export const EndereçoContainer = styled.div`
+    display: flex;
+    flex-direction: row;    
+    align-items: flex-start;
+    /* justify-content: center; */
 `;
 
 export const EndereçoInfo = styled.p`
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-left: 1rem;
+
 `;
 
+export const StatusButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7.5vh;
+    width: 10vw;
+    background: #ff5f6d;
+    color: #fff;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: ${props => props.shadow };
+    cursor: pointer;
+    &:hover{
+        background: #cccccc;
+        transition: 0.2s;
+    }
+`;

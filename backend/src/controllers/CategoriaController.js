@@ -20,7 +20,7 @@ module.exports = {
       .select()
       .first();
 
-      return response.json({ categoria });
+      return response.json( categoria );
     } catch (err) {
       return response.status(400).send({ error: 'Registro de Categoria falhou!' });
     }

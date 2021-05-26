@@ -134,7 +134,7 @@ export default function Pedidos() {
                     <InfoMainContainer>
                         <TabelaProduto rows={
                             pedido.map(pedido => (
-                                { id: pedido.id, col1: pedido.idCliente , col2: pedido.status , col3: pedido.horarioMarcado , col4: pedido.pagamento , col5: pedido.total }
+                                { id: pedido.id, col1: pedido.nomeCliente , col2: pedido.status , col3: pedido.horarioMarcado , col4: pedido.pagamento , col5: pedido.total }
                             ))
                         } columns={columns} hideFooter autoHeight  />
                         

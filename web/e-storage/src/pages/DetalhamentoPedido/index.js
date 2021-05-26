@@ -1,5 +1,6 @@
-import React from "react";
-import { useHistory } from 'react-router-dom';
+import api from "../../services/api";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from 'react-router-dom';
 import { GridRowsProp, GridColDef} from '@material-ui/data-grid';
 import {
     PedidoMainContainer,
@@ -20,13 +21,32 @@ import {
     ListaTitle,
     ListaContainer,
     TabelaProduto,
+    BottomDiv,
+    EndereçoInfo,
 } from "./styles.js";
 
 export default function DetalhamentoPedido() {
+    const location = useLocation();
+    const history = useHistory();
+    const idPedido = "b9c24320-f505-45ab-9c34-cd6d096ad0df";
+    const myToken = `Bearer ${localStorage.getItem("token")}`;
+
+    const [pedido, setPedido] = useState([]);
+
+    useEffect(() => {
+        api.get(`/pedido/${idPedido}`, {
+            headers: {
+                Authorization: myToken,
+            }
+        }).then(response => {
+            setPedido(response.data);
+        })
+    }, [myToken]);
+
 
     const columns1: GridColDef[] = [
         { field: 'col1', headerName: 'Nome do Cliente', width: 200 },
-        { field: 'col2', headerName: 'Tipo de Entrega', width: 200 },
+        { field: 'col2', headerName: 'Situação', width: 200 },
         { field: 'col3', headerName: 'Horário Marcado', width: 173 },
         { field: 'col4', headerName: 'Valor Total', width: 150 },
         { field: 'col5', headerName: 'Pagamento', width: 150 },
@@ -34,7 +54,7 @@ export default function DetalhamentoPedido() {
     ];
 
     const rows1: GridRowsProp = [
-        { id: 1, col1: 'Caroline Bol', col2: 'Delivery', col3: 'Imediatamente', col4: '87,93', col5: 'Dinheiro', col6: '12,07'},
+        { id: 1, col1: pedido.idCliente , col2: pedido.status , col3: pedido.horarioMarcado, col4: pedido.total, col5: pedido.pagamento, col6: pedido.troco},
     ];
 
     const columns2: GridColDef[] = [
@@ -50,7 +70,6 @@ export default function DetalhamentoPedido() {
         { id: 2, col1: 'Queijo Coalho Sadia 6 unidades', col2: '3', col3: '15,97', col4: '47,93'},
     ];
 
-    const history = useHistory();
 
     return (
         <PedidoMainContainer>
@@ -96,7 +115,7 @@ export default function DetalhamentoPedido() {
                             <BackIcon />
                         </BackButton>
                         <PedidoInfoTitle>
-                            Pedidos - Detalhamento
+                            Pedidos - {idPedido}
                         </PedidoInfoTitle>
                     </PedidoInfoTitleContainer>
                     <InfoMainContainer>
@@ -110,12 +129,16 @@ export default function DetalhamentoPedido() {
                             </PedidoInfoTitleContainer>
                             <TabelaProduto rows={rows2} columns={columns2} hideFooter autoHeight checkboxSelection={true} />
                         </ListaContainer>
-                        <PedidoInfoTitleContainer>
-                                <AssignementIcon
-                                iconColor="#ff5f6d"
-                                size="small" />
-                                <ListaTitle>Alterar Status Pedido</ListaTitle>
-                        </PedidoInfoTitleContainer>
+                        
+                        <BottomDiv>
+                            <EndereçoInfo></EndereçoInfo>
+                            <PedidoInfoTitleContainer>
+                                    <AssignementIcon
+                                    iconColor="#ff5f6d"
+                                    size="small" />
+                                    <ListaTitle>Alterar Status Pedido</ListaTitle>
+                            </PedidoInfoTitleContainer>
+                        </BottomDiv>
                         
                     </InfoMainContainer>
                 </PedidoInfoMainContainer>

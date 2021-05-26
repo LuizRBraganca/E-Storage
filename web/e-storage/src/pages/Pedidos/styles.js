@@ -160,16 +160,17 @@ export const TabelaProduto = styled(DataGrid)`
     };
 `;
 
-export const DetalhamentoButton = styled(Link)`
+export const DetalhamentoButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
     height: 5vh;
     width: 3vw;
     border: 1px solid #ff5f6d;
+    background-color: #FEEFE2;
     text-decoration: none;
     border-radius: 0.5rem;
-    /* box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.2); */
+
 
     &:hover{
         background: #cccccc;

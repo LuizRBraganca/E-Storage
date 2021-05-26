@@ -44,7 +44,7 @@ export default function DetalheProduto() {
                 Authorization: myToken,
             }
         }).then(response => {
-            setProduto(response.data.produto);
+            setProduto(response.data);
 
 
         }).catch(function (error) {

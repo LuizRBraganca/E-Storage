@@ -170,4 +170,16 @@ export const TabelaProduto = styled(DataGrid)`
     };
 `;
 
+export const BottomDiv = styled.div`
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem; 
+`;
+
+export const EndereçoInfo = styled.p`
+    font-size: 0.8rem;
+    margin-left: 1rem;
+`;
 

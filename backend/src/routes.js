@@ -36,6 +36,7 @@ routes.get('/produto/lista/:nomeCategoria', authMiddleware, produtoController.in
 routes.get('/produto/:nomeCategoria/:nome', authMiddleware, produtoController.index);
 routes.get('/estoque/lista', authMiddleware, estoqueController.index);
 routes.get('/carrinho/lista', authMiddleware, pedidoProdutoController.indexbyidcliente);
+routes.get('/pedido/lista/:idPedido', authMiddleware, pedidoProdutoController.indexbyidpedido);
 routes.get('/pedido/lista', authMiddleware, pedidoController.index);
 routes.get('/pedido/:id', authMiddleware, pedidoController.indexbyid);
 
@@ -43,8 +44,7 @@ routes.patch('/pedido/:id/:status', authMiddleware, pedidoController.update);
 
 routes.delete('/categoria/:nome', authMiddleware, categoriaController.delete);
 routes.delete('/produto/:nomeCategoria/:nome', authMiddleware, produtoController.delete);
-routes.delete('/estoque/:nome', authMiddleware, estoqueController.delete);
+routes.delete('/estoque/:id', authMiddleware, estoqueController.delete);
 routes.delete('/carrinho/:nomeProduto', authMiddleware, pedidoProdutoController.delete);
-routes.delete('/pedido/:id', authMiddleware, pedidoController.delete);
 
 module.exports = routes;

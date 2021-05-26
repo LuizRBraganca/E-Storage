@@ -15,7 +15,8 @@ exports.up = function(knex) {
     table.foreign('preco').references('preco').inTable('produto');
     
     table.integer('quantidade').notNullable();
-    table.float('totalParcial').notNullable();    
+    table.float('totalParcial').notNullable();
+    table.integer('compra').notNullable().defaultTo(0);  
   });
 };
 

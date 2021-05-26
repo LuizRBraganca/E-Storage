@@ -75,7 +75,7 @@ module.exports = {
 
   async delete(request, response) {
     const { nomeCategoria } = request.params;
-    const nome = request.body;
+    const nome = request.params;
 
     try {
     if (await connection('produto')

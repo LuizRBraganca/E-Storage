@@ -18,7 +18,7 @@ export const GoBackButton = styled.TouchableOpacity`
     shadow-radius: 4.65;
     elevation: 7;
     align-self: flex-start;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-start: 8%;
 `;
 export const GoBackButtonText = styled.Text`
@@ -46,27 +46,31 @@ export const ImageText = styled.Text`
     margin-top: 45%;
 `;
 export const UserInput = styled.TextInput`
-    height: 50px;
-    margin-vertical: 20px;
+    height: 12%;
+    margin-vertical: 15px;
     margin-horizontal: 20px;
     width: 70%;
+    color: black;
     border-radius: 10px;
+    font-family: 'Questrial-Regular';
     align-items: center;
     background-color: #fff;
-    fontSize: 23px;
+    fontSize: 21px;
     padding-start: 15px;
     shadow-offset: {width: 5; height: 5};
     shadow-opacity: 0.3;
 `;
 export const PasswordInput = styled.TextInput`
-    height: 50px;
-    margin-bottom: 30px;
+    height: 12%;
+    margin-bottom: 5px;
     margin-horizontal: 20px;
     width: 70%;
+    font-family: 'Questrial-Regular';
+    color: black;
     border-radius: 10px;
     align-items: center;
     background-color: #fff;
-    fontSize: 23px;
+    fontSize: 21px;
     padding-start: 15px;
     shadow-offset: {width: 5; height: 5};
     shadow-opacity: 0.3;
@@ -79,7 +83,6 @@ export const LoginButton = styled.TouchableOpacity`
     padding-vertical: 5%;
     border-radius: 8px;
     background-color: #FF7A65;
-    margin-bottom: 20px;
     min-width: 70%;
     align-items: center;
     shadow-offset: {width: 5; height: 5};

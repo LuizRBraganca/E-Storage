@@ -7,7 +7,7 @@ export const ScreenAreaView = styled.ScrollView`
 `;
 export const HeaderView = styled(LinearGradient)`
     align-items: center;
-    border-bottom-left-radius: 100px;
+    border-bottom-left-radius: 80;
 `;
 export const ImageView = styled.View`
     width: 60px;
@@ -28,7 +28,7 @@ export const WelcomeText = styled.Text`
 export const UserView = styled.View`
     align-self: flex-start;
     flex-direction: row;
-    margin-top: 10%;
+    margin-top: 7%;
     max-height: 60px;
 `;
 export const HeaderButtonsView = styled.View`
@@ -44,6 +44,7 @@ export const HeaderButtons = styled.TouchableOpacity`
     border-radius: 8px;
     background-color: #fff;
     align-items: center;
+    justify-content: center;
     shadow-color: #000;
     shadow-offset: {
         width: 0;
@@ -56,14 +57,15 @@ export const HeaderButtons = styled.TouchableOpacity`
 export const BottomView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 40%;
+    margin-bottom: 26%;
     justify-content: center;
 `;
 export const ButtonsView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 110px;
+    max-width: 30%;
     margin-horizontal: 10%;
+    align-items: center;
     justify-content: center;
 `;
 export const BottomButtons = styled.TouchableOpacity`
@@ -71,6 +73,8 @@ export const BottomButtons = styled.TouchableOpacity`
     height: 110px;
     margin-bottom: 30%;
     border-radius: 8px;
+    align-items: center;
+    justify-content: center;
     background-color: #f5f5f5;
     shadow-color: #000;
     shadow-offset: {

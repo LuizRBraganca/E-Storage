@@ -33,8 +33,8 @@ function signIn() {
       await AsyncStorage.setItem('@user', jsonValue);
       navigation.navigate('MenuScreen');
 
-    }).catch(function (error) {
-      alert(error);
+    }).catch(function (error, response) {
+      alert(error.response.data.error);
     });
   }
 

@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-export const ScreenAreaView = styled.ScrollView`
+export const ScreenAreaView = styled.View`
     flex: 1;
     background-color: #ffffff;
 `;
@@ -63,25 +63,33 @@ export const SearchInput = styled.TextInput`
 `;
 export const ListView = styled.View`
     width: 300px;
-    height: 450px;
+    height: 200%;
     background-color: #FFC695;
     border-radius: 10px;
     margin-horizontal: 10px;
     align-items: center;
 `;
-export const ListItemView = styled.View`
+export const ListItem = styled.FlatList`
     width: 260px;
-    height: 45px;
-    background-color: #fff;
+    height: 10%;
+    background-color: #FFC695;
     border-radius: 10px;
     margin-top: 5%;
-    justify-content: center;
+    margin-bottom: 5%;
 `;
 export const ListItemText = styled.Text`
     font-weight: bold;
     color: #000;
     font-size: 20px;
     margin: 3%;
+`;
+export const ListItemView = styled.View`
+  margin-bottom: 5%;
+  flex-direction: row;
+  margin-top: 5%;
+  
+  background-color: #fff;
+  border-radius: 10px;
 `;
 export const ConfirmOrCancelView = styled.View`
   margin-bottom: 10%;
@@ -110,4 +118,10 @@ export const ConfirmOrCancelButton = styled.TouchableOpacity`
 export const ConfirmOrCancelButtonText = styled.Text`
   font-size: 24px;
   color: #3f3f3f;
+`;
+export const ItemView = styled.View`
+    background-color: #fff;
+    border-radius: 8px;
+    margin-vertical: 8px;
+    margin-horizontal: 16px;
 `;

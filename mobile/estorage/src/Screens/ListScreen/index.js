@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React,{ useEffect, useState } from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import {
   ScreenAreaView,
   HeaderView,
@@ -8,16 +8,57 @@ import {
   BottomView,
   SearchInput,
   ListView,
-  ListItemView,
+  ListItem,
   ListItemText,
   ButtonsView,
   ConfirmOrCancelButtonText,
   ConfirmOrCancelButton,
   ConfirmOrCancelView,
+  ItemView,
+  ListItemView,
 } from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import api from '../../services/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function CategoriesScreen({navigation}) {
+
+
+  const Item = ({ title }) => (
+    <ItemView >
+      <ListItemText >{title}</ListItemText>
+    </ItemView>
+  );
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+const [carrinho,setCarrinho] = useState([]); 
+async function loadCarrinho() {
+  const token = await AsyncStorage.getItem('@token')
+  //const user = await AsyncStorage.getItem('@user')
+
+  // setToken(token);
+
+  // setUser(JSON.parse(user));
+
+
+  api.get('/carrinho/lista', {
+    headers: { Authorization: token }
+  }).then(function (response) {
+    setCarrinho(response.data);
+
+  }).catch(function (error) {
+    alert(error);
+    console.log(error.response.data);
+  });
+};
+
+useEffect(() => {
+  loadCarrinho();
+}, []);
+
+
+
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -44,15 +85,22 @@ function CategoriesScreen({navigation}) {
       </View>
       <BottomView>
         <ListView>
-          <ListItemView>
-            <ListItemText>Leite em Po, Nestle</ListItemText>
-          </ListItemView>
-          <ListItemView>
-            <ListItemText>Refrigerante, Coca Cola</ListItemText>
-          </ListItemView>
-          <ListItemView>
-            <ListItemText>Leite desnatado, Italac</ListItemText>
-          </ListItemView>
+
+          <ListItem 
+            data={carrinho}            
+            keyExtractor={item => String(item.id)}
+            renderItem={({item: itens}) => (
+              <ListItemView>
+                <ListItemText>
+                  {itens.nomeProduto}
+                </ListItemText>
+                <ListItemText>
+                  {itens.quantidade}
+                </ListItemText>
+              </ListItemView>
+            )}>        
+          </ListItem>
+
         </ListView>
       
       <ConfirmOrCancelView>

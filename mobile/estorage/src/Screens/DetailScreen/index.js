@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import {
   ScreenAreaView,
@@ -22,12 +22,12 @@ import {
 import api from '../../services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function DetailScreen({navigation}) {
+function DetailScreen({ navigation }) {
   const [produto, setProduto] = useState([]);
   const [quantidade, setQuantidade] = useState([]);
   const route = useRoute();
   const [token, setToken] = useState('');
-  const [user, setUser] = useState([]);
+  //const [user, setUser] = useState([]);
 
   const categoria = route.params.categoria;
   const categoriaNome = categoria.nome;
@@ -43,8 +43,8 @@ function DetailScreen({navigation}) {
       const user = await AsyncStorage.getItem('@user')
 
       setToken(token);
-      
-      setUser(JSON.parse(user));
+
+      // setUser(JSON.parse(user));
 
       api.get(`/produto/${categoriaNome}/${produtoNome}`, {
         headers: { Authorization: token }
@@ -63,6 +63,34 @@ function DetailScreen({navigation}) {
 
   }, []);
 
+  async function adicionarProduto(nomeProduto) {
+    const token = await AsyncStorage.getItem('@token')
+    const user = await AsyncStorage.getItem('@user')
+
+    // setToken(token);
+
+    // setUser(JSON.parse(user));
+
+    const data = {
+      nomeProduto: nomeProduto,
+      quantidade: quantidade
+    };
+    console.log(produtoNome);
+    console.log(data.nomeProduto);
+    console.log(data.quantidade);
+    console.log(nomeProduto);
+
+    api.post('/carrinho/cadastro', data, {
+      headers: { Authorization: token }
+    }).then(function (response) {
+
+      navigation.navigate('MenuScreen');
+
+    }).catch(function (error) {
+      alert(error.response.data);
+      //console.log(error.response.data);
+    });
+  }
 
   return (
     <ScreenAreaView>
@@ -72,7 +100,7 @@ function DetailScreen({navigation}) {
         </UserView>
       </HeaderView>
 
-      <View style={{height: '10%'}}>
+      <View style={{ height: '10%' }}>
         <View
           style={{
             ...StyleSheet.absoluteFillObject,
@@ -111,9 +139,9 @@ function DetailScreen({navigation}) {
           value={quantidade}
           placeholder="..."
           placeholderTextColor="#4D5656FF"
-        /> 
-  
-      <ConfirmOrCancelView>
+        />
+
+        <ConfirmOrCancelView>
           <ButtonsView>
             <ConfirmOrCancelButton onPress={() => navigation.goBack()}>
               <ConfirmOrCancelButtonText>Voltar</ConfirmOrCancelButtonText>
@@ -122,10 +150,10 @@ function DetailScreen({navigation}) {
 
           <ButtonsView>
             <SendButton>
-              <SendButtonText>Adicionar</SendButtonText>
+              <SendButtonText onPress={() => adicionarProduto(produto.nome)}>Adicionar</SendButtonText>
             </SendButton>
           </ButtonsView>
-      </ConfirmOrCancelView>
+        </ConfirmOrCancelView>
       </BottomView>
 
     </ScreenAreaView>

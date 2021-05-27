@@ -59,10 +59,6 @@ function MenuScreen({navigation}) {
           }}></View>
       </View>
       <BottomView>
-        <ButtonsView>
-          <ButtonsTitle>Scan</ButtonsTitle>
-          <BottomButtons><Icon name="filter-center-focus" size={100} color="#000" /></BottomButtons>
-        </ButtonsView>
 
         <ButtonsView>
           <ButtonsTitle>Lista</ButtonsTitle>

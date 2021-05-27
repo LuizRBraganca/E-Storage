@@ -57,6 +57,7 @@ export const UserInput = styled.TextInput`
     align-items: center;
     background-color: #fff;
     font-size: 23px;
+    color: black;
     padding-start: 15px;
     shadow-color: #000;
     shadow-offset: {
@@ -76,6 +77,7 @@ export const PasswordInput = styled.TextInput`
     align-items: center;
     background-color: #fff;
     font-size: 23px;
+    color: black;
     padding-start: 15px;
     shadow-color: #000;
     shadow-offset: {

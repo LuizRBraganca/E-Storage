@@ -182,8 +182,8 @@ export const Produto = styled.li`
     justify-content: space-between;
     margin-top: 1rem;   
     margin-left: 2rem;
-    height: 20vh;
-    width: 12vw;
+    height: 23vh;
+    width: 13vw;
     background: #f3f2f2;
     text-decoration: none;
     border-radius: 0.5rem;
@@ -194,6 +194,7 @@ export const ProdutoButton = styled.button`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: #f3f2f2;
     text-decoration: none;
     border: none;
     cursor: pointer;
@@ -201,7 +202,7 @@ export const ProdutoButton = styled.button`
 
 export const ProdutoButtonTitle = styled.p`
     margin-top: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color:  #ff5f6d;
 `;
 

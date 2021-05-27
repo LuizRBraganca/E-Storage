@@ -28,10 +28,14 @@ module.exports = {
 
       let total = await connection('pedidoProduto')
         .where('idCliente', idCliente)
+        .groupBy('idCliente')
+        .havingNull('idPedido')
+        .having('compra', '=', 0)
         .select()
         .sum({ totalSum: 'totalParcial' });
       total = total[0];
       total = total.totalSum;
+
 
       if (troco != 0) {
         await connection('pedido').insert({

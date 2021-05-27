@@ -140,7 +140,7 @@ export default function AddProduto() {
                                 Nome do Item
                                 </TitleAddProdutoInput>
                                 <AddProdutoInput 
-                                    placeholder="Ex: Leite Ninho" 
+                                    placeholder="Ex: Leite em Pó" 
                                     value={nome}
                                     onChange={e => setNome(e.target.value)}
                                 />
@@ -166,7 +166,7 @@ export default function AddProduto() {
                                 Preço
                                 </TitleAddProdutoInput>
                                 <AddProdutoInput 
-                                    placeholder="Ex: 20,00" 
+                                    placeholder="Ex: 20.00" 
                                     value={preco}
                                     onChange={e => setPreco(e.target.value)}    
                                 />

@@ -160,8 +160,8 @@ export const Categoria = styled.li`
     position: relative;
     margin-top: 1rem;   
     margin-left: 2rem;
-    height: 20vh;
-    width: 12vw;
+    height: 24vh;
+    width: 13vw;
     background: #f3f2f2;
     text-decoration: none;
     border-radius: 0.5rem;
@@ -174,6 +174,7 @@ export const CategoriaButton = styled.button`
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    background: #f3f2f2;
     border: none;
     cursor: pointer;
 `;

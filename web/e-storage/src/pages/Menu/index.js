@@ -40,25 +40,25 @@ export default function Menu() {
     })
     const [dataBar, setDataBar] = useState([
         ['Meses', 'Na semana', 'Entregues', 'Cancelados', 'Pendentes'],
-        ['Jan', 120, 120, 120, 120],
-        ['Fev', 109, 120, 120, 120],
-        ['Mar', 109, 120, 120, 120],
-        ['Abr', 109, 120, 120, 120],
-        ['Maio',109, 120, 120, 120],
-        ['Jun', 109, 120, 120, 120],
-        ['Jul', 109, 120, 120, 120],
-        ['Ago', 109, 120, 120, 120],
-        ['Set', 109, 120, 120, 120],
-        ['Out', 109, 120, 120, 120],
-        ['Nov', 109, 120, 120, 120],
-        ['Dez', 109, 120, 120, 120],
+        ['Jan', 0, 0, 0, 0],
+        ['Fev', 0, 0, 0, 0],
+        ['Mar',120, 109, 1, 5],
+        ['Abr', 0, 0, 0, 0],
+        ['Maio', 0, 0, 0, 0],
+        ['Jun', 0, 0, 0, 0],
+        ['Jul', 0, 0, 0, 0],
+        ['Ago', 0, 0, 0, 0],
+        ['Set', 0, 0, 0, 0],
+        ['Out', 0, 0, 0, 0],
+        ['Nov', 0, 0, 0, 0],
+        ['Dez', 0, 0, 0, 0],
       ])
     const [dataPizza, setDataPizza] = useState([
         ['Tipo', 'Quantidade'],
         ['Na Semana', 120],
         ['Entregues', 109],
-        ['Cancelados', 100],
-        ['Pendentes', 100],
+        ['Cancelados', 1],
+        ['Pendentes', 5],
       ])
 
     return (
@@ -154,8 +154,8 @@ export default function Menu() {
                                         </PizzaGraphTitle>
                                     </GraphTitleIcon>
                                     <Graph 
-                                        width={'600px'}
-                                        height={'250px'}
+                                        width={'55vw'}
+                                        height={'40vh'}
                                         chartType="Bar"
                                         data={dataBar}
                                         options={options}
@@ -169,8 +169,8 @@ export default function Menu() {
                                     </PizzaGraphTitle>
                                 </GraphTitleIcon>
                                     <Graph 
-                                        width={'200px'}
-                                        height={'200px'}
+                                        width={'18vw'}
+                                        height={'40vh'}
                                         chartType="PieChart"
                                         data={dataPizza}
                                         options={options}

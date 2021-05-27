@@ -125,7 +125,7 @@ export const GraphView = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-left: 3rem;
+    margin-left: 1.5rem;
     flex: 1;
 `;
 export const BarGraphView = styled.div`
@@ -139,7 +139,7 @@ export const PizzaGraphView = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 4rem;
+    margin-left: 1rem;
 `;
 export const PizzaGraphTitle = styled.h3`
     color: #ff5f6d;

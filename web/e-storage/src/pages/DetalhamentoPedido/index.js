@@ -29,16 +29,37 @@ import {
 
 export default function DetalhamentoPedido() {
     const location = useLocation();
+    const [value, setValue] = useState('');
     const history = useHistory();
-    const idPedido = "812c99c9-9745-443f-939e-1ab71979dfc4";
+    const idPedido = "08038d57-f019-440f-ab72-55a68c6ab3f1";
     const myToken = `Bearer ${localStorage.getItem("token")}`;
 
     const [status, setStatus] = useState("");
     const [pedido, setPedido] = useState([]);
     const [produtoPedido, setProdutoPedido] = useState([]);
 
+    function handleValue(v) {
+        setValue(v);
+
+           api.patch(`/pedido/${idPedido}/${v}`,{
+                headers: {
+                    Authorization: myToken,
+                }
+            }).then(function (response) {
+
+           alert(
+               "Status alterado com sucesso"
+             );
+             history.push({pathname: '/detalhamento_pedido', idPedido: idPedido});
+
+         }).catch(function (error) {
+            console.log(myToken, "     n")
+           alert(error.response.data.error);
+
+         });
+    }
+
     useEffect(() => {
-        const myToken = `Bearer ${localStorage.getItem("token")}`;
         api.get(`/pedido/${idPedido}`, {
             headers: {
                 Authorization: myToken,
@@ -59,23 +80,7 @@ export default function DetalhamentoPedido() {
     }, []);
 
 
-    function handleMudarStatus(status) {
-        
-        api.patch(`/pedido/${idPedido}/${status}`,
-        {
-            headers: {Authorization: myToken}}).then(function (response) {
 
-           alert(
-               "Status alterado com sucesso"
-             );
-             history.push({pathname: '/detalhamento_pedido', idPedido: idPedido});
-
-         }).catch(function (error) {
-
-           alert(error.response.data.error);
-
-         });
-    }
 
     const columns1: GridColDef[] = [
         { field: 'col1', headerName: 'Nome do Cliente', width: 200 },
@@ -166,9 +171,9 @@ export default function DetalhamentoPedido() {
                         </ListaContainer>
                         
                         <BottomDiv>
-                           
-                            <StatusButton id="Cancelado" onClick={handleMudarStatus("Cancelado")}>Cancelar Pedido</StatusButton>
-                            <StatusButton id="Concluído" onClick={handleMudarStatus("Concluído")}>Concluir Pedido</StatusButton>
+                        {/*    
+                            <StatusButton onClick={() => handleValue("Cancelado")}>Cancelar Pedido</StatusButton>
+                            <StatusButton onClick={() => handleValue("Concluido")}>Concluir Pedido</StatusButton> */}
                         </BottomDiv>
                         
                     </InfoMainContainer>

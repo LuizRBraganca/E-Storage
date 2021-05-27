@@ -40,10 +40,7 @@ export default function Produtos() {
 
     async function handleDeleteProduto(nome) {
         try {
-            await api.delete(`produto/${categoriaNome}`,  {
-                data: {
-                    nome: nome
-                },
+            await api.delete(`produto/${categoriaNome}/${nome}`,  {
                 headers: {
                     Authorization: myToken,
                 }
@@ -51,7 +48,7 @@ export default function Produtos() {
 
             setProduto(produto.filter(produto => produto.nome !== nome));
         } catch (err) {
-            alert(err);
+            alert(err.response.data.error);
         }
     }
 

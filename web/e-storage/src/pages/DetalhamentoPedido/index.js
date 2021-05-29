@@ -22,8 +22,6 @@ import {
     ListaContainer,
     TabelaProduto,
     BottomDiv,
-    EndereçoContainer,
-    EndereçoInfo,
     StatusButton,
 } from "./styles.js";
 
@@ -31,7 +29,7 @@ export default function DetalhamentoPedido() {
     const location = useLocation();
     const [value, setValue] = useState('');
     const history = useHistory();
-    const idPedido = "08038d57-f019-440f-ab72-55a68c6ab3f1";
+    const idPedido = "812c99c9-9745-443f-939e-1ab71979dfc4";
     const myToken = `Bearer ${localStorage.getItem("token")}`;
 
     const [status, setStatus] = useState("");
@@ -40,21 +38,21 @@ export default function DetalhamentoPedido() {
 
     function handleValue(v) {
         setValue(v);
+        console.log(status);
+        api.patch(`/pedido/${idPedido}/${v}`, [], {
+        headers: {
+            Authorization: myToken,
+        }
+        }).then(function (response) {
 
-           api.patch(`/pedido/${idPedido}/${v}`,{
-                headers: {
-                    Authorization: myToken,
-                }
-            }).then(function (response) {
+        alert(
+            "Status alterado com sucesso"
+            );
+            history.push({pathname: '/detalhamento_pedido', idPedido: idPedido});
 
-           alert(
-               "Status alterado com sucesso"
-             );
-             history.push({pathname: '/detalhamento_pedido', idPedido: idPedido});
-
-         }).catch(function (error) {
-            console.log(myToken, "     n")
-           alert(error.response.data.error);
+        }).catch(function (error) {
+        console.log(myToken, "     n")
+        alert(error.response.data.error);
 
          });
     }
@@ -77,7 +75,7 @@ export default function DetalhamentoPedido() {
         })
 
        
-    }, []);
+    }, [myToken]);
 
 
 
@@ -85,14 +83,15 @@ export default function DetalhamentoPedido() {
     const columns1: GridColDef[] = [
         { field: 'col1', headerName: 'Nome do Cliente', width: 200 },
         { field: 'col2', headerName: 'Situação', width: 200 },
-        { field: 'col3', headerName: 'Horário Marcado', width: 173 },
-        { field: 'col4', headerName: 'Valor Total', width: 150 },
-        { field: 'col5', headerName: 'Pagamento', width: 150 },
-        { field: 'col6', headerName: 'Troco', width: 150 },
+        { field: 'col3', headerName: 'Endereço', width: 250 },
+        { field: 'col4', headerName: 'Horário Marcado', width: 173 },
+        { field: 'col5', headerName: 'Valor Total', width: 150 },
+        { field: 'col6', headerName: 'Pagamento', width: 150 },
+        { field: 'col7', headerName: 'Troco', width: 150 },
     ];
 
     const rows1: GridRowsProp = [
-        { id: 1, col1: pedido.nomeCliente , col2: pedido.status , col3: pedido.horarioMarcado, col4: pedido.total, col5: pedido.pagamento, col6: pedido.troco},
+        { id: 1, col1: pedido.nomeCliente , col2: pedido.status , col3: pedido.ruaCliente +" "+ pedido.numeroRuaCliente, col4: pedido.horarioMarcado, col5: pedido.total, col6: pedido.pagamento, col7: pedido.troco},
     ];
 
     const columns2: GridColDef[] = [
@@ -171,9 +170,9 @@ export default function DetalhamentoPedido() {
                         </ListaContainer>
                         
                         <BottomDiv>
-                        {/*    
+                           
                             <StatusButton onClick={() => handleValue("Cancelado")}>Cancelar Pedido</StatusButton>
-                            <StatusButton onClick={() => handleValue("Concluido")}>Concluir Pedido</StatusButton> */}
+                            <StatusButton onClick={() => handleValue("Concluido")}>Concluir Pedido</StatusButton>
                         </BottomDiv>
                         
                     </InfoMainContainer>

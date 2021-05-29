@@ -54,22 +54,22 @@ export default function DetalheProduto() {
           });
     }, [myToken]);
 
+
     async function handleDeleteProduto(nome) {
         try {
-            await api.delete(`produto/${categoriaNome}`,  {
-                data: {
-                    nome: nome
-                },
+            await api.delete(`produto/${categoriaNome}/${nome}`,  {
                 headers: {
                     Authorization: myToken,
                 }
             });
+
+            alert("Produto deletado com sucesso");
             
-            history.push({pathname: '/produtos', nome: categoriaNome});
+            history.push({pathname: '/produtos', nome:  categoriaNome});
         } catch (err) {
             alert(err);
         }
-    };
+    }
       
     const columns: GridColDef[] = [
         { field: 'col1', headerName: 'ID', width: 100 },

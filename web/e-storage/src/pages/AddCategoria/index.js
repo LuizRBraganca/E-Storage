@@ -126,6 +126,7 @@ export default function AddCategoria() {
                                 Imagem
                             </TitleAddCategoriaInput>
                             <AddCategoriaInput 
+                                type='file'
                                 value={filename}
                                 onChange={e => setFilename(e.target.value)}
                             />

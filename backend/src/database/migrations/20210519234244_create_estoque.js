@@ -7,7 +7,6 @@ exports.up = function(knex) {
 
     table.string('nome').notNullable();
     table.string('marca').notNullable();
-    table.string('data_de_fabricacao').notNullable();
     table.string('data_de_validade').notNullable();
     table.integer('quantidade').notNullable();
   });

@@ -2,7 +2,7 @@ const connection = require('../database/connection');
 
 module.exports = {
   async create(request, response) {
-    const { nome, marca, data_de_fabricacao, data_de_validade, quantidade } = request.body;
+    const { nome, marca, data_de_validade, quantidade } = request.body;
     const idCliente = request.userData.id;
 
     try {
@@ -18,7 +18,6 @@ module.exports = {
         idCliente,
         nome,
         marca,
-        data_de_fabricacao,
         data_de_validade,
         quantidade
       });

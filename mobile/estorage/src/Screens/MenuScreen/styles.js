@@ -7,7 +7,7 @@ export const ScreenAreaView = styled.ScrollView`
 `;
 export const HeaderView = styled(LinearGradient)`
     align-items: center;
-    border-bottom-left-radius: 80;
+    border-bottom-left-radius: 70;
 `;
 export const ImageView = styled.View`
     width: 60px;
@@ -40,7 +40,7 @@ export const HeaderButtons = styled.TouchableOpacity`
     width: 80px;
     height: 80px;
     margin-horizontal: 10px;
-    margin-bottom: 20%;
+    margin-bottom: 15%;
     border-radius: 8px;
     background-color: #fff;
     align-items: center;
@@ -55,26 +55,20 @@ export const HeaderButtons = styled.TouchableOpacity`
     elevation: 7;
 `;
 export const BottomView = styled.View`
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 26%;
+    flex-direction: column;
+    margin-bottom: 55%;
     justify-content: center;
-`;
-export const ButtonsView = styled.View`
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 30%;
-    margin-horizontal: 10%;
     align-items: center;
-    justify-content: center;
 `;
-export const BottomButtons = styled.TouchableOpacity`
-    width: 110px;
-    height: 110px;
-    margin-bottom: 30%;
-    border-radius: 8px;
-    align-items: center;
-    justify-content: center;
+export const ButtonsView = styled.TouchableOpacity`
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 27%;
+    padding: 5%;
+    margin-bottom: 8%;
+    border-radius: 10px;
     background-color: #f5f5f5;
     shadow-color: #000;
     shadow-offset: {
@@ -84,10 +78,30 @@ export const BottomButtons = styled.TouchableOpacity`
     shadow-opacity: 0.29;
     shadow-radius: 4.65;
     elevation: 7;
-`; 
+`;
 export const ButtonsTitle = styled.Text`
-    font-size: 26px;
+    font-size: 22px;
+    margin-left: 8%;
     color: #000;
+`;
+
+export const BotButtonView = styled.View`
+    margin-top: 2%;
+    margin-bottom: 5%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+export const TopButtonView = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+`;
+export const TextButtonView = styled.Text`
+    font-size: 16px;
+    line-height: 27px;
+    text-align: justify;
 `;
 
 export const PopUp = styled.View`

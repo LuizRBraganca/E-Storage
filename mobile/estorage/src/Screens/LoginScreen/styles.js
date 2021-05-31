@@ -52,7 +52,6 @@ export const UserInput = styled.TextInput`
     width: 70%;
     color: black;
     border-radius: 10px;
-    font-family: 'Questrial-Regular';
     align-items: center;
     background-color: #fff;
     fontSize: 21px;
@@ -65,7 +64,6 @@ export const PasswordInput = styled.TextInput`
     margin-bottom: 5px;
     margin-horizontal: 20px;
     width: 70%;
-    font-family: 'Questrial-Regular';
     color: black;
     border-radius: 10px;
     align-items: center;

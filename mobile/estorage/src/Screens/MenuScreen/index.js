@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {View, StyleSheet, Modal, Text, Pressable} from 'react-native';
+import { View, StyleSheet, Modal, Text, Pressable } from 'react-native';
 import {
   ScreenAreaView,
   HeaderView,
@@ -10,8 +10,10 @@ import {
   HeaderButtons,
   BottomView,
   ButtonsView,
-  BottomButtons,
   ButtonsTitle,
+  TopButtonView,
+  BotButtonView,
+  TextButtonView,
   PopUp,
   PopUpView,
   ScanText,
@@ -20,8 +22,8 @@ import {
 } from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-function MenuScreen({navigation}) {
-const [modalVisible, setModalVisible] = useState('');
+function MenuScreen({ navigation }) {
+  const [modalVisible, setModalVisible] = useState('');
 
   return (
     <ScreenAreaView>
@@ -34,24 +36,24 @@ const [modalVisible, setModalVisible] = useState('');
         <HeaderButtonsView>
           <HeaderButtons
             onPress={() => alert("Ja esta na pagina")}>
-              <Icon name="person" size={65} color="#F5B27A" />
+            <Icon name="person" size={65} color="#F5B27A" />
           </HeaderButtons>
-          
+
           <HeaderButtons
             onPress={() =>
               navigation.navigate('CategoriesScreen')}>
-              <Icon name="shopping-basket" size={55} color="#F5B27A" />
-            </HeaderButtons>
+            <Icon name="shopping-basket" size={55} color="#F5B27A" />
+          </HeaderButtons>
 
           <HeaderButtons
             onPress={() =>
               navigation.navigate('DeliveryScreen')}>
-              <Icon name="motorcycle" size={65} color="#F5B27A" />
-            </HeaderButtons>
+            <Icon name="motorcycle" size={65} color="#F5B27A" />
+          </HeaderButtons>
         </HeaderButtonsView>
       </HeaderView>
 
-      <View style={{height: '10%'}}>
+      <View style={{ height: '5%' }}>
         <View
           style={{
             ...StyleSheet.absoluteFillObject,
@@ -74,42 +76,55 @@ const [modalVisible, setModalVisible] = useState('');
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}>
-          <PopUp>
-            <PopUpView>
-              <ScanText>
-                Scan fora de funcionamento temporariamente
+        <PopUp>
+          <PopUpView>
+            <ScanText>
+              Scan fora de funcionamento temporariamente
               </ScanText>
-                  
-                  <ConfirmOrCancelButton onPress={() => setModalVisible(!modalVisible)}>
-                    <ConfirmOrCancelButtonText>Aceitar</ConfirmOrCancelButtonText>
-                  </ConfirmOrCancelButton>
-                
-            </PopUpView>
-          </PopUp>
+
+            <ConfirmOrCancelButton onPress={() => setModalVisible(!modalVisible)}>
+              <ConfirmOrCancelButtonText>Aceitar</ConfirmOrCancelButtonText>
+            </ConfirmOrCancelButton>
+
+          </PopUpView>
+        </PopUp>
       </Modal>
-
-
       <BottomView>
-        <ButtonsView>
-          <ButtonsTitle>Scan</ButtonsTitle>
-          <BottomButtons onPress={()=>alert('ain')}><Icon name="filter-center-focus" size={90} color="#F5B27A" /></BottomButtons>
+
+        <ButtonsView onPress={() => navigation.navigate('ListScreen')}>
+          <TopButtonView>
+            <Icon name="post-add" size={50} color="#F5B27A" />
+            <ButtonsTitle>Lista</ButtonsTitle>
+          </TopButtonView>
+          <BotButtonView>
+            <TextButtonView>
+              Ajuste sua lista de compras para realizar seus pedidos de maneira prática e rápida.
+            </TextButtonView>
+          </BotButtonView>
         </ButtonsView>
 
-        <ButtonsView>
-          <ButtonsTitle>Lista</ButtonsTitle>
-          <BottomButtons onPress={() => navigation.navigate('ListScreen')}
-              ><Icon name="post-add" size={90} color="#F5B27A" /></BottomButtons>
+        <ButtonsView onPress={() => navigation.navigate('HistoryScreen')}>
+          <TopButtonView> 
+            <Icon name="receipt" size={45} color="#F5B27A" />
+            <ButtonsTitle>Histórico</ButtonsTitle>
+          </TopButtonView>
+          <BotButtonView>
+            <TextButtonView>
+              Verifique suas listas de compras passadas para manter suas contas sempre na ponta do lápis.
+            </TextButtonView>
+          </BotButtonView>
         </ButtonsView>
 
-        <ButtonsView>
-          <ButtonsTitle>Historico</ButtonsTitle>
-          <BottomButtons onPress={() => navigation.navigate('HistoryScreen')}><Icon name="receipt" size={90} color="#F5B27A" /></BottomButtons>
-        </ButtonsView>
-
-        <ButtonsView>
-          <ButtonsTitle>Estoque</ButtonsTitle>
-          <BottomButtons onPress={() => navigation.navigate('StorageScreen')}>
-            <Icon name="storage" size={90} color="#F5B27A" /></BottomButtons>
+        <ButtonsView onPress={() => navigation.navigate('StorageScreen')}>
+          <TopButtonView> 
+            <Icon name="storage" size={45} color="#F5B27A" />
+            <ButtonsTitle>Despensa</ButtonsTitle>
+          </TopButtonView>
+          <BotButtonView>
+            <TextButtonView>
+              Adicione os produtos que você comprou no supermercado para ter um controle facilitado do seu estoque.
+            </TextButtonView>
+          </BotButtonView>
         </ButtonsView>
       </BottomView>
     </ScreenAreaView>

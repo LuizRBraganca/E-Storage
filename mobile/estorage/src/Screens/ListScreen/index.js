@@ -1,5 +1,6 @@
 import React,{ useEffect, useState } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Alert, Text, StyleSheet} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   ScreenAreaView,
   HeaderView,
@@ -19,14 +20,13 @@ import {
 } from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import api from '../../services/api';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function CategoriesScreen({navigation}) {
 
 
   const Item = ({ title }) => (
     <ItemView >
-      <ListItemText >{title}</ListItemText>
+      <ListItemText>{title}</ListItemText>
     </ItemView>
   );
   const renderItem = ({ item }) => (

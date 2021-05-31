@@ -12,6 +12,7 @@ import ListScreen from '../Screens/ListScreen';
 import StorageScreen from '../Screens/StorageScreen';
 import HistoryScreen from '../Screens/HistoryScreen';
 import DetailScreen from '../Screens/DetailScreen';
+import AddStorageScreen from '../Screens/AddStorageProduct';
 
 
 
@@ -34,6 +35,7 @@ const AppRoutes = () => (
     <App.Screen name="StorageScreen" component={StorageScreen} />
     <App.Screen name="HistoryScreen" component={HistoryScreen} />
     <App.Screen name="DetailScreen" component={DetailScreen} />
+    <App.Screen name="AddStorageScreen" component={AddStorageScreen} />
     
     
   </App.Navigator>

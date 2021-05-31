@@ -22,7 +22,7 @@ module.exports = {
 
     user.senha = undefined;
     
-    const token = jwt.sign({ id: user.id }, authConfig.secret, {
+    const token = jwt.sign({ id: user }, authConfig.secret, {
       expiresIn: 86400,
     });
 
@@ -47,7 +47,7 @@ module.exports = {
 
     user.senha = undefined;
     
-    const token = jwt.sign({ id: user.nome }, authConfig.secret, {
+    const token = jwt.sign({ id: user }, authConfig.secret, {
       expiresIn: 86400,
     });
 

@@ -14,7 +14,7 @@ import {
   ButtonsText,
 } from './styles';
 
-function FirstScreen({navigation}) {
+function WelcomeScreen({navigation}) {
   return (
     <ScreenAreaView>
       <HeaderView colors={['#FF5F6D', '#FF7A65', '#FF9362', '#FFAC66']}>
@@ -51,4 +51,4 @@ function FirstScreen({navigation}) {
   );
 }
 
-export default FirstScreen;
+export default WelcomeScreen;

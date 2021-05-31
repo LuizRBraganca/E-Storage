@@ -17,6 +17,7 @@ import {
   ConfirmOrCancelButtonText,
   ButtonsText,
 } from './styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function DeliveryScreen({navigation}) {
   return (
@@ -29,13 +30,18 @@ function DeliveryScreen({navigation}) {
         </UserView>
         <HeaderButtonsView>
           <HeaderButtons
-            onPress={() => navigation.navigate('ProfileScreen')}></HeaderButtons>
+            onPress={() => navigation.navigate('MenuScreen')}>
+            <Icon name="person" size={70} color="#F5B27A" /></HeaderButtons>
 
           <HeaderButtons
-           onPress={() => navigation.navigate('MarketScreen')}></HeaderButtons>
+           onPress={() => navigation.navigate('CategoriesScreen')}>
+             <Icon name="shopping-basket" size={70} color="#F5B27A" />
+           </HeaderButtons>
 
           <HeaderButtons
-            onPress={() => alert('Ja esta na pagina')}></HeaderButtons>
+            onPress={() => alert('Ja esta na pagina')}>
+              <Icon name="motorcycle" size={70} color="#F5B27A" />
+            </HeaderButtons>
         </HeaderButtonsView>
       </HeaderView>
 

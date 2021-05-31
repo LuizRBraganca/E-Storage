@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-export const ScreenAreaView = styled.ScrollView`
+export const ScreenAreaView = styled.SafeAreaView`
     flex: 1;
     background-color: #ffffff;
 `;
@@ -64,7 +64,7 @@ export const ButtonsView = styled.View`
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 100px;
-    margin: 0px 10px 10px 1px;
+    margin: 0px 15px 10px 5px;
     justify-content: center;
 `;
 export const BottomButtons = styled.TouchableOpacity`
